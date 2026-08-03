@@ -934,6 +934,60 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   .cal-wrap{grid-template-columns:1fr}
   .blog-grid-layout{grid-template-columns:1fr}
 }
+
+/* ── CONTACT STRIP MOBILE ── */
+.cs-icon{flex-shrink:0;font-size:15px;line-height:1}
+.cs-text{overflow-wrap:anywhere;word-break:break-word;min-width:0}
+.cs-hours-mobile{display:none}
+.cs-hours-desktop{display:inline}
+.cs-hours-row{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+
+@media(max-width:767px){
+  .contact-strip{padding:0}
+  .cs-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    height:auto;
+    padding:16px 20px;
+    gap:0;
+  }
+  .cs-items{
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+    width:100%;
+    margin-bottom:14px;
+  }
+  .cs-item{
+    align-items:flex-start;
+    gap:10px;
+    width:100%;
+    font-size:14px;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .cs-hours-desktop{display:none}
+  .cs-hours-mobile{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    margin-top:2px;
+  }
+  .cs-hours-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    font-size:13px;
+  }
+  .cs-hours-row span{color:rgba(255,255,255,.7);min-width:56px}
+  .cs-hours-row strong{color:white}
+  .cs-book{
+    width:100%;
+    text-align:center;
+    border-radius:10px;
+    padding:11px 16px;
+  }
+}
 </style>
   <meta property="og:title" content="KFZ Chaves – Meisterwerkstatt München"/>
   <meta property="og:description" content="Ihre zuverlässige KFZ-Meisterwerkstatt in München. Wartung, Reparatur & Inspektion für alle Marken. Jetzt Termin buchen!"/>
@@ -1032,9 +1086,25 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="contact-strip">
     <div class="cs-inner">
       <div class="cs-items">
-        <div class="cs-item">📞 <strong>089 89557334</strong></div>
-        <div class="cs-item">✉️ <strong>info@kfz-chaves.de</strong></div>
-        <div class="cs-item">🕐 Mo–Do <strong>08:00–12:00 & 13:00–18:00</strong> | Fr <strong>08:00–12:00 & 13:00–17:00</strong></div>
+        <a class="cs-item" href="tel:08989557334" style="color:white;text-decoration:none">
+          <span class="cs-icon">📞</span>
+          <span class="cs-text"><strong>089 89557334</strong></span>
+        </a>
+        <a class="cs-item" href="mailto:info@kfz-chaves.de" style="color:white;text-decoration:none">
+          <span class="cs-icon">✉️</span>
+          <span class="cs-text"><strong>info@kfz-chaves.de</strong></span>
+        </a>
+        <div class="cs-item cs-hours">
+          <span class="cs-icon">🕐</span>
+          <span class="cs-text cs-hours-text">
+            <span class="cs-hours-desktop">Mo–Do <strong>08:00–12:00 &amp; 13:00–18:00</strong> | Fr <strong>08:00–12:00 &amp; 13:00–17:00</strong></span>
+            <span class="cs-hours-mobile">
+              <span class="cs-hours-row"><span>Mo–Do</span><strong>08:00–12:00 &amp; 13:00–18:00</strong></span>
+              <span class="cs-hours-row"><span>Freitag</span><strong>08:00–12:00 &amp; 13:00–17:00</strong></span>
+              <span class="cs-hours-row"><span>Sa &amp; So</span><strong>Geschlossen</strong></span>
+            </span>
+          </span>
+        </div>
       </div>
       <button class="cs-book" onclick="showPage('booking')">Jetzt Termin buchen →</button>
     </div>
