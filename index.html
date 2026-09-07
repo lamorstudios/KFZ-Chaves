@@ -988,6 +988,20 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     padding:11px 16px;
   }
 }
+
+/* ── RECRUITING ── */
+.recruiting-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;width:100%;min-width:0}
+.recruiting-content{min-width:0}
+.recruiting-card{border-radius:var(--r-lg);overflow:hidden;background:var(--near-black);min-width:0}
+.recruiting-card-inner{padding:32px;box-sizing:border-box}
+.recruiting-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px}
+.recruiting-list li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.85);min-width:0}
+.rec-icon{font-size:18px;flex-shrink:0;margin-top:2px;line-height:1}
+.recruiting-list li div{min-width:0}
+.recruiting-list li div strong{display:block;font-size:14px;font-weight:700;color:white;margin-bottom:2px}
+.recruiting-list li div p{font-size:13px;color:rgba(255,255,255,.5);margin:0;line-height:1.5;word-break:break-word}
+@media(max-width:900px){.recruiting-grid{grid-template-columns:1fr;gap:24px}}
+@media(max-width:640px){.recruiting-grid{grid-template-columns:1fr;gap:16px}.recruiting-card-inner{padding:20px}.recruiting-list{gap:12px}}
 </style>
   <meta property="og:title" content="KFZ Chaves – Meisterwerkstatt München"/>
   <meta property="og:description" content="Ihre zuverlässige KFZ-Meisterwerkstatt in München. Wartung, Reparatur & Inspektion für alle Marken. Jetzt Termin buchen!"/>
@@ -1340,7 +1354,47 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     </div>
   </div>
 
-  <!-- NEWSLETTER -->
+  
+  <!-- RECRUITING -->
+  <div class="sec">
+    <div class="sec-inner">
+      <div class="recruiting-grid">
+
+        <!-- Linke Spalte: Text -->
+        <div class="recruiting-content">
+          <div class="eyebrow">Wir suchen Verstärkung</div>
+          <h2 class="display" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:16px">KFZ-Mechatroniker<br><span style="color:var(--blue)">(m/w/d)</span> gesucht</h2>
+          <p style="font-size:13px;color:var(--grey);font-weight:600;margin-bottom:16px;letter-spacing:.3px">Vollzeit · München · m/w/d</p>
+          <p style="color:var(--mid);line-height:1.75;margin-bottom:24px;font-size:15px">
+            Du bist KFZ-Mechatroniker und suchst eine neue Herausforderung in einer familiären, modernen Werkstatt in München? Dann freuen wir uns darauf, dich kennenzulernen.
+          </p>
+          <a class="btn-blue" href="mailto:info@kfz-chaves.de?subject=Bewerbung%20als%20KFZ-Mechatroniker" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;font-size:15px;padding:14px 28px">
+            Jetzt bewerben ✉️
+          </a>
+          <p style="margin-top:12px;font-size:13px;color:var(--grey)">
+            Oder ruf uns direkt an: <a href="tel:08989557334" style="color:var(--blue);font-weight:600">089 89557334</a>
+          </p>
+        </div>
+
+        <!-- Rechte Spalte: Vorteile -->
+        <div class="recruiting-card">
+          <div class="recruiting-card-inner">
+            <div class="eyebrow eyebrow-white" style="margin-bottom:20px">Das erwartet dich</div>
+            <ul class="recruiting-list">
+              <li><span class="rec-icon">👥</span><div><strong>Familiäres Team</strong><p>Kurze Wege, offene Kommunikation, echter Zusammenhalt</p></div></li>
+              <li><span class="rec-icon">🚗</span><div><strong>Abwechslungsreiche Fahrzeuge</strong><p>Alle Marken und Modelle – kein Tag wie der andere</p></div></li>
+              <li><span class="rec-icon">🔧</span><div><strong>Moderne Werkstattausstattung</strong><p>Professionelles Equipment und aktuelle Diagnosetechnik</p></div></li>
+              <li><span class="rec-icon">📈</span><div><strong>Langfristige Perspektive</strong><p>Sicherer Arbeitsplatz mit Entwicklungsmöglichkeiten</p></div></li>
+              <li><span class="rec-icon">🤝</span><div><strong>Faire Zusammenarbeit</strong><p>Zuverlässige Konditionen und respektvoller Umgang</p></div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- NEWSLETTER -->
   <div class="sec sec-dark">
     <div class="sec-inner">
       <div class="newsletter-wrap">
