@@ -2,7 +2,134 @@
   publish = "."
   command = ""
 
+# ══════════════════════════════════════════════════
+# RATE LIMITING – schützt gegen aggressive Crawler
+# Dokumentation: https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/
+#
+# Regel: Maximal 60 Requests pro IP pro 60 Sekunden.
+# Bei Überschreitung: HTTP 429 (Too Many Requests).
+# Googlebot/Bingbot machen typisch 1-3 Req/Min → nicht betroffen.
+# Aggressive Crawler mit 100+ Req/Min → werden geblockt.
+#
+# WICHTIG: from="/*" to="/:splat" ist KEIN Rewrite auf index.html.
+# Es ist ein Pass-Through-Redirect (Pfad bleibt unverändert).
+# Netlify nutzt das als Ankerpunkt für die rate_limit-Regel.
+# Unbekannte URLs erhalten weiterhin 404, nicht index.html.
+# ══════════════════════════════════════════════════
+
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/:splat"
   status = 200
+  force = false
+
+  [redirects.rate_limit]
+  window_limit = 60
+  window_size = 60
+  aggregate_by = ["ip", "domain"]
+
+# ── Bot/Scanner-Pfade mit 404 beantworten ──
+# Minimale Antwort statt 3MB index.html.
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-json/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.env"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.git/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/phpmyadmin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/config.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/setup.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/shell.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ── Headers ──
+
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
