@@ -133,3 +133,12 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
+
+# ── Edge Function: Bot-Query-Parameter blockieren ──
+# Blockiert ?page_id=... und ?ai1ec=... bevor index.html ausgeliefert wird.
+# Spart ~570KB Bandwidth pro Bot-Request (statt index.html → 11 Bytes).
+# Echte Besucher nutzen diese Parameter nie.
+
+[[edge_functions]]
+  path = "/*"
+  function = "bot-block"
