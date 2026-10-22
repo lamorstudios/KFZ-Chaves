@@ -1606,7 +1606,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
 </div>
 <a href="https://maps.google.com/?q=Bodenseestr.+275,+81249+München" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;background:var(--blue);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">
   📍 Route in Google Maps öffnen
-</a></div><div class="kform"><h3>Nachricht senden</h3><div class="form-row"><div class="field"><label>Vorname</label><input type="text" placeholder="Max"/></div><div class="field"><label>Nachname</label><input type="text" placeholder="Mustermann"/></div></div><div class="form-row"><div class="field"><label>E-Mail</label><input type="email" placeholder="max@beispiel.de"/></div><div class="field"><label>Telefon</label><input type="tel" placeholder="+49 89 …"/></div></div><div class="form-row full"><div class="field"><label>Betreff</label><select><option>Terminanfrage</option><option>Kostenvoranschlag</option><option>Allgemeine Frage</option><option>Feedback</option><option>Sonstiges</option></select></div></div><div class="form-row full"><div class="field"><label>Nachricht</label><textarea placeholder="Wie können wir Ihnen helfen?"></textarea></div></div><button class="btn-blue" onclick="sendKontakt()" style="width:100%;margin-top:8px;padding:13px;font-size:14px;border-radius:10px">Nachricht senden</button><div id="kf-success" style="display:none;margin-top:14px;background:var(--blue-light);color:var(--blue-dark);border-radius:10px;padding:12px;text-align:center;font-size:13px;font-weight:600">✓ Nachricht gesendet! Wir melden uns bald.</div></div></div></div></div>
+</a></div><div class="kform"><h3>Nachricht senden</h3><div class="form-row"><div class="field"><label>Vorname *</label><input type="text" id="kf-fname" placeholder="Max"/></div><div class="field"><label>Nachname</label><input type="text" id="kf-lname" placeholder="Mustermann"/></div></div><div class="form-row"><div class="field"><label>E-Mail *</label><input type="email" id="kf-email" placeholder="max@beispiel.de"/></div><div class="field"><label>Telefon</label><input type="tel" id="kf-phone" placeholder="+49 89 …"/></div></div><div class="form-row full"><div class="field"><label>Betreff</label><select id="kf-subject"><option>Terminanfrage</option><option>Kostenvoranschlag</option><option>Allgemeine Frage</option><option>Feedback</option><option>Sonstiges</option></select></div></div><div class="form-row full"><div class="field"><label>Nachricht *</label><textarea id="kf-message" placeholder="Wie können wir Ihnen helfen?"></textarea></div></div><button class="btn-blue" id="kf-btn" onclick="sendKontakt()" style="width:100%;margin-top:8px;padding:13px;font-size:14px;border-radius:10px">Nachricht senden</button><div id="kf-error" style="display:none;margin-top:14px;background:#fff0f0;border:1.5px solid var(--red-c);border-radius:10px;padding:12px;font-size:13px;color:#a1201a"></div><div id="kf-success" style="display:none;margin-top:14px;background:var(--blue-light);color:var(--blue-dark);border-radius:10px;padding:12px;text-align:center;font-size:13px;font-weight:600">✓ Nachricht gesendet! Wir melden uns bald.</div></div></div></div></div>
 </div>
 
 <!-- ═══════ BLOG ═══════ -->
@@ -2087,6 +2087,26 @@ const EMAILJS_PUBLIC_KEY='HIER_PUBLIC_KEY_EINSETZEN';
 const EMAILJS_SERVICE_ID='HIER_SERVICE_ID_EINSETZEN';
 const EMAILJS_TEMPLATE_ID='HIER_TEMPLATE_ID_EINSETZEN';
 const WERKSTATT_EMAIL='info@kfz-chaves.de';
+/* Versand: zuerst EmailJS (falls Keys gesetzt), sonst/zusätzlich Netlify Forms */
+function _emailjsReady(){return typeof EMAILJS_PUBLIC_KEY!=='undefined'&&EMAILJS_PUBLIC_KEY&&EMAILJS_PUBLIC_KEY!=='HIER_PUBLIC_KEY_EINSETZEN'&&typeof emailjs!=='undefined';}
+async function _sendNetlify(formName,data){
+  const body=new URLSearchParams({'form-name':formName,...data}).toString();
+  const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+  if(!res.ok)throw new Error('Netlify Forms HTTP '+res.status);
+}
+async function _deliver(formName,params,netlifyData){
+  if(_emailjsReady()){
+    try{await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,params);return true;}
+    catch(err){console.error('EmailJS:',err);}
+  }
+  try{await _sendNetlify(formName,netlifyData);return true;}
+  catch(err){console.error('Netlify Forms:',err);return false;}
+}
+function _failHtml(subject,body){
+  const href='mailto:'+WERKSTATT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  return 'Ihre Anfrage konnte leider nicht automatisch übermittelt werden. Bitte rufen Sie uns an: <a href="tel:08989557334" style="font-weight:700">089 89557334</a> oder <a href="'+href+'" style="font-weight:700;text-decoration:underline">senden Sie uns die Anfrage per E-Mail</a>.';
+}
+
 if(EMAILJS_PUBLIC_KEY!=='HIER_PUBLIC_KEY_EINSETZEN'){emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});}
 
 /* PAGE ROUTING */
@@ -2238,31 +2258,20 @@ async function sendKontakt(){
   const btn=document.getElementById('kf-btn');
   const success=document.getElementById('kf-success');
   const errBox=document.getElementById('kf-error');
-  btn.textContent='Wird gesendet…';btn.disabled=true;
+  if(btn){btn.textContent='Wird gesendet…';btn.disabled=true;}
   if(success)success.style.display='none';
   if(errBox)errBox.style.display='none';
   const params={to_email:'info@kfz-chaves.de',kunde_name:fname+' '+lname,
     kunde_email:email,kunde_telefon:phone||'—',betreff:subject,nachricht:message,reply_to:email};
-  const keysOk=typeof EMAILJS_PUBLIC_KEY!=='undefined'&&EMAILJS_PUBLIC_KEY&&EMAILJS_PUBLIC_KEY!=='HIER_PUBLIC_KEY_EINSETZEN';
-  if(keysOk){
-    try{
-      await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,params);
-      if(success){success.innerHTML='✅ Nachricht gesendet! Wir melden uns bald.';success.style.cssText='display:block;background:#f0fff4;border:1px solid #34c759;color:#1a7a35;border-radius:10px;padding:12px;font-size:13px;margin-top:12px';}
-      btn.textContent='Nachricht senden';btn.disabled=false;return;
-    }catch(err){
-      console.error('EmailJS Kontakt:',err);
-      if(errBox){errBox.innerHTML='Fehler beim Senden. Bitte rufen Sie an: <a href="tel:08989557334">089 89557334</a>';errBox.style.display='block';}
-      btn.textContent='Nachricht senden';btn.disabled=false;return;
-    }
+  const ok=await _deliver('kontakt',params,{kunde_name:params.kunde_name,kunde_email:email,kunde_telefon:phone||'—',betreff:subject,nachricht:message});
+  if(ok){
+    if(success){success.innerHTML='✓ Nachricht gesendet! Wir melden uns bald.';success.style.display='block';}
+    ['kf-fname','kf-lname','kf-email','kf-phone','kf-message'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  }else if(errBox){
+    errBox.innerHTML=_failHtml(subject+' – '+fname+' '+lname,'Name: '+fname+' '+lname+'\nE-Mail: '+email+'\nTel: '+phone+'\nNachricht: '+message);
+    errBox.style.display='block';
   }
-  try{
-    const sub=encodeURIComponent(subject+' – '+fname+' '+lname);
-    const body=encodeURIComponent('Name: '+fname+' '+lname+'\nE-Mail: '+email+'\nTel: '+phone+'\nNachricht: '+message);
-    const a=document.createElement('a');a.href='mailto:info@kfz-chaves.de?subject='+sub+'&body='+body;
-    document.body.appendChild(a);a.click();document.body.removeChild(a);
-  }catch(e){}
-  if(success){success.innerHTML='✅ E-Mail-Programm geöffnet – bitte E-Mail absenden.';success.style.cssText='display:block;background:#fff8e6;border:1px solid #ffcc00;color:#7a5c00;border-radius:10px;padding:12px;font-size:13px;margin-top:12px';}
-  btn.textContent='Nachricht senden';btn.disabled=false;
+  if(btn){btn.textContent='Nachricht senden';btn.disabled=false;}
 }
 
 /* ════ BOOKING ════ */
@@ -2464,28 +2473,16 @@ async function submitBooking(){
     preis_schaetzung:total>0?'ca. '+total+' € (unverbindlich)':'Auf Anfrage',
     wunschtermin:terminStr,alternativtermin:altStr,
     beschreibung:g('inp-desc')||'—',anmerkungen:g('inp-notes')||'—',
+    adresse:[g('inp-street'),g('inp-city')].filter(Boolean).join(', ')||'—',
+    quelle:g('inp-source')||'—',
     reply_to:g('inp-email'),
   };
-  const keysOk=typeof EMAILJS_PUBLIC_KEY!=='undefined'&&EMAILJS_PUBLIC_KEY&&EMAILJS_PUBLIC_KEY!=='HIER_PUBLIC_KEY_EINSETZEN';
-  if(keysOk){
-    try{
-      await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,params);
-      _showAnfrageSuccess(params.kunde_name);return;
-    }catch(err){
-      console.error('EmailJS:',err);
-      errEl.innerHTML='Fehler beim Senden. Bitte rufen Sie uns an: <a href="tel:08989557334">089 89557334</a>';
-      errEl.style.display='block';
-      btn.classList.remove('btn-loading');btn.disabled=false;btn.textContent='Terminanfrage senden';
-      return;
-    }
-  }
-  try{
-    const sub=encodeURIComponent('Terminanfrage '+confNum+' – '+params.kunde_name);
-    const body=encodeURIComponent('Nr: '+confNum+'\nZeit: '+params.anfrage_zeit+'\nName: '+params.kunde_name+'\nTel: '+params.kunde_telefon+'\nFahrzeug: '+params.fahrzeug_marke+' '+params.fahrzeug_modell+'\nLeistung: '+params.services+'\nWunschtermin: '+params.wunschtermin+'\nAlternativ: '+params.alternativtermin+'\nBeschreibung: '+params.beschreibung);
-    const a=document.createElement('a');a.href='mailto:info@kfz-chaves.de?subject='+sub+'&body='+body;
-    document.body.appendChild(a);a.click();document.body.removeChild(a);
-  }catch(e){}
-  setTimeout(()=>_showAnfrageSuccess(params.kunde_name),400);
+  const {to_email,reply_to,...netlifyData}=params;
+  const ok=await _deliver('terminanfrage',params,netlifyData);
+  if(ok){_showAnfrageSuccess(params.kunde_name);return;}
+  errEl.innerHTML=_failHtml('Terminanfrage '+confNum+' – '+params.kunde_name,'Nr: '+confNum+'\nName: '+params.kunde_name+'\nTel: '+params.kunde_telefon+'\nE-Mail: '+params.kunde_email+'\nFahrzeug: '+params.fahrzeug_marke+' '+params.fahrzeug_modell+'\nLeistung: '+params.services+'\nWunschtermin: '+params.wunschtermin+'\nAlternativ: '+params.alternativtermin+'\nBeschreibung: '+params.beschreibung);
+  errEl.style.display='block';
+  btn.classList.remove('btn-loading');btn.disabled=false;btn.textContent='Terminanfrage senden';
 }
 
 function _showAnfrageSuccess(name){
@@ -2665,5 +2662,13 @@ updateStepUI();
 
   </div>
 </footer>
+
+<!-- Netlify Forms: versteckte Vorlagen, damit Netlify die Formulare beim Deploy erkennt -->
+<form name="terminanfrage" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<input name="bot-field"/><input name="anfrage_nr"/><input name="anfrage_zeit"/><input name="kunde_name"/><input name="kunde_email"/><input name="kunde_telefon"/><input name="kontakt_pref"/><input name="adresse"/><input name="quelle"/><input name="fahrzeug_marke"/><input name="fahrzeug_modell"/><input name="fahrzeug_baujahr"/><input name="fahrzeug_kraftstoff"/><input name="fahrzeug_km"/><input name="fahrzeug_kennzeichen"/><input name="fahrzeug_ez"/><input name="services"/><input name="preis_schaetzung"/><input name="wunschtermin"/><input name="alternativtermin"/><textarea name="beschreibung"></textarea><textarea name="anmerkungen"></textarea>
+</form>
+<form name="kontakt" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<input name="bot-field"/><input name="kunde_name"/><input name="kunde_email"/><input name="kunde_telefon"/><input name="betreff"/><textarea name="nachricht"></textarea>
+</form>
 </body>
 </html>
