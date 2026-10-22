@@ -1,0 +1,28 @@
+# SEO-Analyse-Crawler ohne Nutzen für die Werkstatt – verursachen nur Traffic
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# Alle anderen (Google, Bing, …) dürfen die Seite normal lesen,
+# aber keine alten WordPress-Kalender-Links
+User-agent: *
+Disallow: /*?page_id=
+Disallow: /*?ai1ec=
+Allow: /
