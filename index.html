@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>KFZ Chaves – Meisterwerkstatt München</title>
 <meta name="description" content="KFZ Chaves Meisterwerkstatt München – Reparatur, Wartung und Inspektion für alle Marken. Jetzt online Termin buchen."/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="preload" href="/fonts/inter-400.woff" as="font" type="font/woff" crossorigin/><link rel="preload" href="/fonts/interdisplay-800.woff" as="font" type="font/woff" crossorigin/>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 /* ── MOBILE OVERFLOW FIXES ── */
@@ -1020,13 +1020,126 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <meta name="keywords" content="KFZ Werkstatt München, Meisterwerkstatt München, Auto Reparatur München, Wartung München, Inspektion München"/>
   <link rel="canonical" href="https://www.kfz-chaves.de"/>
 
+<style id="polish">
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 449;font-display:swap;src:url(/fonts/inter-400.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:450 549;font-display:swap;src:url(/fonts/inter-500.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:550 649;font-display:swap;src:url(/fonts/inter-600.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:650 1000;font-display:swap;src:url(/fonts/inter-700.woff) format('woff')}
+@font-face{font-family:'Inter Display';font-style:normal;font-weight:600 1000;font-display:swap;src:url(/fonts/interdisplay-800.woff) format('woff')}
+:root{--font-display:'Inter Display','Inter',system-ui,sans-serif;--r-sm:12px;--r-md:20px;--r-lg:28px}
+body{font-feature-settings:'cv11','ss01'}
+.hero h1,h2.display,.page-hero h1,.detail-hero h1,.legal-wrap h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.035em}
+h2.display{font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1.04}
+.hero h1{letter-spacing:-.04em;line-height:1}
+.counter-item .c-num{font-family:var(--font-display)}
+
+/* Line-Icons */
+.ico{width:1em;height:1em;display:inline-block;vertical-align:-.15em;flex-shrink:0}
+.bc-icon,.service-row-icon,.ki-icon{color:var(--blue)}
+.bc-icon .ico{width:22px;height:22px}.service-row-icon .ico{width:21px;height:21px}.ki-icon .ico{width:18px;height:18px;color:#7fb6ff}
+.bento-card.dark .bc-icon,.bento-card.blue .bc-icon{color:white}
+.usp-icon,.pillar-icon,.oc-icon,.mc-res-icon,.success-icon,.cookie-icon{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:var(--blue-light);color:var(--blue);font-size:0}
+.usp-icon .ico,.pillar-icon .ico,.oc-icon .ico,.mc-res-icon .ico{width:26px;height:26px}
+.success-icon{width:80px;height:80px;border-radius:50%}.success-icon .ico{width:40px;height:40px}
+.cookie-icon{width:44px;height:44px;border-radius:12px}.cookie-icon .ico{width:22px;height:22px}
+.blog-card-img{color:var(--blue);background:linear-gradient(135deg,var(--blue-light),#f5f8ff)}
+.blog-card-img .ico{width:44px;height:44px;stroke-width:1.3}
+.rec-icon,.fc-icon,.cs-icon{display:inline-flex;color:inherit}
+.rec-icon .ico{width:18px;height:18px;color:#7fb6ff}
+.fc-icon .ico,.cs-icon .ico{width:16px;height:16px}
+.footer-social-btn{color:white}.footer-social-btn .ico{width:17px;height:17px}
+.review-car .ico{width:13px;height:13px;margin-right:3px;vertical-align:-.2em}
+.promo-bar .ico{width:16px;height:16px;vertical-align:-.25em;margin-right:4px}
+.btn-blue .ico,.btn-ghost .ico{width:17px;height:17px;vertical-align:-.25em;margin-left:6px}
+strong .ico{width:17px;height:17px;vertical-align:-.25em;margin-right:4px;color:var(--blue)}
+
+/* Logo */
+.fb-logo-img{filter:brightness(0) invert(1);opacity:.92}
+@media(max-width:820px){.nav-logo img{height:34px !important}}
+
+/* Section-Feinschliff */
+.eyebrow:not(:has(*)){display:flex;align-items:center;gap:10px;letter-spacing:.14em;font-size:11.5px}
+.eyebrow:not(:has(*))::before{content:'';width:22px;height:1.5px;background:currentColor;border-radius:2px;opacity:.8;flex-shrink:0}
+.eyebrow[style*="text-align:center"]{justify-content:center}
+.footer-grid{align-items:start}
+.footer-brand p{max-width:300px}
+.counter-strip{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 120% at 50% 0%,rgba(0,113,227,.18),transparent 70%),#0d0f14}
+.counter-inner{gap:0}
+.counter-item{position:relative;padding:8px 12px}
+.counter-item+.counter-item::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:linear-gradient(transparent,rgba(255,255,255,.14),transparent)}
+.counter-item .c-num{font-size:clamp(2.4rem,4.4vw,3.6rem);letter-spacing:-.04em;background:linear-gradient(180deg,#fff 40%,#9fb7d6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.counter-item .c-num span{-webkit-text-fill-color:var(--blue)}
+@media(max-width:700px){.counter-inner{grid-template-columns:1fr 1fr;row-gap:28px}.counter-item:nth-child(3)::before{display:none}}
+
+/* Karten: Licht folgt der Maus + leichte Tiefe */
+.bento-card,.usp-item,.pillar,.review-card,.blog-card,.service-card{position:relative;isolation:isolate}
+.bento-card{border-radius:var(--r-lg);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.bento-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px -18px rgba(10,30,70,.28)}
+.bento-card::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;z-index:2;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,113,227,.12),transparent 45%)}
+.bento-card.dark::after,.bento-card.blue::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 45%)}
+.bento-card:hover::after{opacity:1}
+.bento-card-img{position:relative}
+.bento-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.25))}
+.bento-card:hover .bento-card-img img{transform:scale(1.06)}
+.bento-card-img img{transition:transform .9s cubic-bezier(.2,.8,.2,1) !important}
+.bento-card .bc-link{display:inline-flex;align-items:center;gap:4px;transition:gap .25s}
+.bento-card:hover .bc-link{gap:9px}
+
+/* USP-Leiste & Stimmen etwas edler */
+.usp-strip{border-radius:var(--r-lg);box-shadow:0 1px 0 rgba(0,0,0,.02),0 20px 50px -30px rgba(10,30,70,.25)}
+.usp-item{padding:44px 32px}
+.usp-item h3{margin-top:18px}
+.review-card{border-radius:var(--r-md) !important;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(10,30,70,.25)}
+
+/* Buttons: weicher Glanz */
+.btn-blue{position:relative;overflow:hidden}
+.btn-blue::before{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);transition:left .7s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.btn-blue:hover::before{left:140%}
+
+/* Überschriften blenden mit Maske ein */
+.reveal-h{clip-path:inset(0 0 100% 0);transform:translateY(18px);opacity:.001;transition:clip-path 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.reveal-h.in{clip-path:inset(0 0 -10% 0);transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){.reveal-h{clip-path:none;transform:none;opacity:1;transition:none}.bento-card,.bento-card-img img{transition:none !important}}
+
+/* Responsive-Fixes: nichts darf über den Bildschirmrand ragen */
+body{overflow-wrap:break-word}
+.legal-wrap,.legal-wrap *{overflow-wrap:anywhere}
+.service-row>*,.referral-banner>*,.option-grid>*,.booking-card-header>*,.bento>*,.kontakt-layout>*{min-width:0}
+.booking-card-header{gap:12px}
+@media(max-width:600px){
+  .service-row{grid-template-columns:40px 1fr;gap:6px 14px;padding:20px 18px;align-items:start}
+  .service-row-icon{width:40px;height:40px;grid-row:span 2}
+  .service-row-price{grid-column:2;text-align:left;white-space:normal;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .service-row-price span{display:inline;margin-top:0}
+  .referral-banner{padding:32px 22px;gap:22px}
+  .rb-title{font-size:1.35rem}
+  .rb-btn{white-space:normal;width:100%}
+  .option-card{overflow-wrap:anywhere;hyphens:auto}
+}
+@media(max-width:400px){
+  .booking-card-header{flex-wrap:wrap}
+  .step-badge{order:-1}
+}
+
+/* Motion-Ebene */
+.m-progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#5fb0ff);transform:scaleX(0);transform-origin:0 50%;z-index:2000;pointer-events:none}
+.m-veil{position:fixed;inset:0;z-index:3000;display:none;pointer-events:none;background:radial-gradient(ellipse at 50% 120%,#0a3d8f,#05070d 70%)}
+.m-sweep{position:absolute;top:0;bottom:0;left:0;width:40%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(95,176,255,.16),transparent)}
+.m-char{display:inline-block;will-change:transform}
+.m-line{padding-bottom:.06em}
+.mosaic-item,.phil-img{will-change:clip-path}
+.bento,.recruiting-grid{transform-style:preserve-3d}
+@media (prefers-reduced-motion:reduce){.m-progress,.m-veil,.m-sweep{display:none!important}}
+</style>
 </head>
 <body>
 <a href="#page-start" class="skip-link">Zum Inhalt springen</a>
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner">
-  <div class="cookie-icon">🍪</div>
+  <div class="cookie-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01M11 17v.01M7 14v.01"/></svg></div>
   <div class="cookie-text">
     <p><strong>Diese Website verwendet Cookies.</strong> Wir nutzen Cookies für eine optimale Nutzererfahrung. Details in unserer Datenschutzerklärung.</p>
     <div class="cookie-actions">
@@ -1039,7 +1152,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
 
 <!-- WHATSAPP -->
 <a class="whatsapp-btn" href="https://wa.me/4989895573340" target="_blank" rel="noopener">
-  <span style="font-size:26px">💬</span>
+  <span style="font-size:26px"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
   <span class="whatsapp-tooltip">WhatsApp schreiben</span>
 </a>
 
@@ -1049,17 +1162,13 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
 <!-- EMERGENCY BAR -->
 
 
-<!-- PROMO BAR -->
-<div class="promo-bar" id="promo-bar">
-  <span>🎉 <strong>Herbst-Aktion:</strong> 10 % Rabatt auf Reifenwechsel – nur bis 31. Oktober 2026</span>
-  <button class="pb-close" onclick="document.getElementById('promo-bar').style.display='none'">×</button>
-</div>
+
 
 <!-- NAV -->
 <nav role="navigation" aria-label="Hauptnavigation">
   <div class="nav-wrap">
     <div class="nav-brand" onclick="showPage('start')">
-      <img src="/img/f40287dd24.webp" alt="KFZ Chaves Meisterbetrieb" style="height:34px;width:auto;display:block"/>
+      <img src="/img/logo-chaves.webp" alt="KFZ Chaves Meisterbetrieb" width="149" height="58" style="height:42px;width:auto;display:block"/>
     </div>
     <ul class="nav-links">
       <li><span id="nav-start" class="active" onclick="showPage('start')">Start</span></li>
@@ -1109,15 +1218,15 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="cs-inner">
       <div class="cs-items">
         <a class="cs-item" href="tel:08989557334" style="color:white;text-decoration:none">
-          <span class="cs-icon">📞</span>
+          <span class="cs-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           <span class="cs-text"><strong>089 89557334</strong></span>
         </a>
         <a class="cs-item" href="mailto:info@kfz-chaves.de" style="color:white;text-decoration:none">
-          <span class="cs-icon">✉️</span>
+          <span class="cs-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
           <span class="cs-text"><strong>info@kfz-chaves.de</strong></span>
         </a>
         <div class="cs-item cs-hours">
-          <span class="cs-icon">🕐</span>
+          <span class="cs-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
           <span class="cs-text cs-hours-text">
             <span class="cs-hours-desktop">Mo–Do <strong>08:00–12:00 &amp; 13:00–18:00</strong> | Fr <strong>08:00–12:00 &amp; 13:00–17:00</strong></span>
             <span class="cs-hours-mobile">
@@ -1185,11 +1294,11 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
         </div>
         <div class="bento-card span6">
           <div class="bento-card-img"><img src="/img/b44ffaa523.webp" alt="Motorreparatur KFZ Chaves" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/></div>
-          
+          <div class="bento-card-body"><h3>Motorreparatur</h3><p>Präzise Diagnose und fachgerechte Reparatur – für Motoren aller Marken. Wir erklären Ihnen den Befund transparent.</p><span class="bc-link" onclick="showPage('detail-motor')">Mehr erfahren →</span></div>
         </div>
-        <div class="bento-card span4"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon">⚙️</div><p>Fachgerechte Reparaturen, abgestimmt auf Ihr Fahrzeug.</p><span class="bc-link" onclick="showPage('services')">Mehr erfahren →</span></div></div>
-        <div class="bento-card span4 blue"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon">🔗</div><h3>Zahnriemenwechsel</h3><p>Rechtzeitiger Wechsel verhindert kostspielige Schäden.</p><span class="bc-link" onclick="showPage('detail-zahnriemen')">Mehr erfahren →</span></div></div>
-        <div class="bento-card span4"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon">🏁</div><h3>HU/AU</h3><p>Wir bereiten Ihr Fahrzeug optimal auf die Hauptuntersuchung vor.</p><span class="bc-link" onclick="showPage('detail-huau')">Mehr erfahren →</span></div></div>
+        <div class="bento-card span4"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Reparaturen</h3><p>Fachgerechte Reparaturen, abgestimmt auf Ihr Fahrzeug.</p><span class="bc-link" onclick="showPage('services')">Mehr erfahren →</span></div></div>
+        <div class="bento-card span4 blue"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Zahnriemenwechsel</h3><p>Rechtzeitiger Wechsel verhindert kostspielige Schäden.</p><span class="bc-link" onclick="showPage('detail-zahnriemen')">Mehr erfahren →</span></div></div>
+        <div class="bento-card span4"><div class="bento-card-body" style="padding-top:28px"><div class="bc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>HU/AU</h3><p>Wir bereiten Ihr Fahrzeug optimal auf die Hauptuntersuchung vor.</p><span class="bc-link" onclick="showPage('detail-huau')">Mehr erfahren →</span></div></div>
       </div>
     </div>
   </div>
@@ -1201,7 +1310,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <h2 class="display">Was kostet mein Service?</h2>
       <p class="lead">Erhalten Sie sofort eine Preisorientierung – unverbindlich und kostenlos.</p>
       <div class="quickcalc">
-        <h3>🧮 Preisrechner</h3>
+        <h3>Preisrechner</h3>
         <p>Wählen Sie Ihren Service und erhalten Sie einen Richtwert.</p>
         <div class="qc-grid">
           <div class="qc-field"><label>Service</label>
@@ -1245,11 +1354,11 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="sec sec-surface">
     <div class="sec-inner">
       <div class="eyebrow" style="text-align:center">Warum KFZ Chaves?</div>
-      <h2 class="display" style="text-align:center;max-width:460px;margin:0 auto 48px">Ihr vertrauenswürdiger Partner.</h2>
+      <h2 class="display" style="text-align:center;max-width:900px;margin:0 auto 48px">Ihr vertrauenswürdiger Partner.</h2>
       <div class="usp-strip">
-        <div class="usp-item"><div class="usp-icon">🎓</div><h3>Kompetente Beratung</h3><p>Unsere Meister beraten Sie ehrlich und ohne Verkaufsdruck.</p></div>
-        <div class="usp-item"><div class="usp-icon">💶</div><h3>Transparente Preise</h3><p>Kostenvoranschlag vor jeder Reparatur. Keine Überraschungen.</p></div>
-        <div class="usp-item"><div class="usp-icon">✅</div><h3>Zufriedenheitsgarantie</h3><p>Nicht zufrieden? Wir lösen es – versprochen.</p></div>
+        <div class="usp-item"><div class="usp-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div><h3>Kompetente Beratung</h3><p>Unsere Meister beraten Sie ehrlich und ohne Verkaufsdruck.</p></div>
+        <div class="usp-item"><div class="usp-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div><h3>Transparente Preise</h3><p>Kostenvoranschlag vor jeder Reparatur. Keine Überraschungen.</p></div>
+        <div class="usp-item"><div class="usp-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div><h3>Zufriedenheitsgarantie</h3><p>Nicht zufrieden? Wir lösen es – versprochen.</p></div>
       </div>
     </div>
   </div>
@@ -1260,12 +1369,12 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <div class="eyebrow">Kundenstimmen</div>
       <h2 class="display">Was unsere Kunden sagen.</h2>
       <div class="reviews-grid">
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">M</div><div class="review-meta"><strong>Michael R.</strong><span>vor 2 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Absolut top! Schnelle Diagnose, faire Preise und das Auto war am nächsten Tag fertig. Werde definitiv wiederkommen.</div><span class="review-car">🚗 VW Golf VII</span></div>
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">S</div><div class="review-meta"><strong>Sandra K.</strong><span>vor 1 Monat</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Sehr ehrliche Beratung – es wurde nichts verkauft, was nicht nötig war. Das schätze ich sehr. Klare Empfehlung!</div><span class="review-car">🚗 BMW 3er</span></div>
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">T</div><div class="review-meta"><strong>Thomas W.</strong><span>vor 3 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Zahnriemenwechsel + Inspektion zu einem fairen Preis. Alles sauber erklärt, kein Fachchinesisch. Super Werkstatt!</div><span class="review-car">🚗 Audi A4</span></div>
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">L</div><div class="review-meta"><strong>Laura P.</strong><span>vor 2 Monaten</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Als Frau fühlt man sich hier nicht übervorteilt – alles wird transparent erklärt. Das Vertrauen war sofort da.</div><span class="review-car">🚗 Toyota Yaris</span></div>
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">A</div><div class="review-meta"><strong>Ahmed B.</strong><span>vor 5 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Reparatur in kürzester Zeit erledigt. Der Preis war deutlich unter dem eines Markenhändlers. Sehr empfehlenswert!</div><span class="review-car">🚗 Mercedes C-Klasse</span></div>
-        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">J</div><div class="review-meta"><strong>Julia M.</strong><span>vor 1 Woche</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">HU direkt bestanden dank der sorgfältigen Vorbereitung durch KFZ Chaves. Einfach klasse Team!</div><span class="review-car">🚗 Opel Astra</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">M</div><div class="review-meta"><strong>Michael R.</strong><span>vor 2 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Absolut top! Schnelle Diagnose, faire Preise und das Auto war am nächsten Tag fertig. Werde definitiv wiederkommen.</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> VW Golf VII</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">S</div><div class="review-meta"><strong>Sandra K.</strong><span>vor 1 Monat</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Sehr ehrliche Beratung – es wurde nichts verkauft, was nicht nötig war. Das schätze ich sehr. Klare Empfehlung!</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> BMW 3er</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">T</div><div class="review-meta"><strong>Thomas W.</strong><span>vor 3 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Zahnriemenwechsel + Inspektion zu einem fairen Preis. Alles sauber erklärt, kein Fachchinesisch. Super Werkstatt!</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Audi A4</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">L</div><div class="review-meta"><strong>Laura P.</strong><span>vor 2 Monaten</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Als Frau fühlt man sich hier nicht übervorteilt – alles wird transparent erklärt. Das Vertrauen war sofort da.</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Toyota Yaris</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">A</div><div class="review-meta"><strong>Ahmed B.</strong><span>vor 5 Wochen</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Reparatur in kürzester Zeit erledigt. Der Preis war deutlich unter dem eines Markenhändlers. Sehr empfehlenswert!</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Mercedes C-Klasse</span></div>
+        <div class="review-card"><div class="review-card-content"><div class="review-header"><div class="review-avatar">J</div><div class="review-meta"><strong>Julia M.</strong><span>vor 1 Woche</span></div></div></div><div class="review-stars">★★★★★</div><div class="review-text">HU direkt bestanden dank der sorgfältigen Vorbereitung durch KFZ Chaves. Einfach klasse Team!</div><span class="review-car"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Opel Astra</span></div>
       </div>
       <div class="google-badge">
         <span>Bewertet mit <strong>4.9 / 5</strong> auf Google – basierend auf über 180 Bewertungen</span>
@@ -1274,26 +1383,6 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   </div>
 
   
-  <!-- TESTIMONIALS CAROUSEL -->
-  <div class="sec sec-surface">
-    <div class="sec-inner">
-      <div class="eyebrow">Erfahrungsberichte</div>
-      <h2 class="display">Kunden, die uns vertrauen.</h2>
-      <div class="testimonial-wrap">
-        <div class="testimonials-track" id="testimonials-track">
-          <div class="testimonial-card"><div class="testimonial-card-bg" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=40')"></div><div class="testimonial-card-content"><div class="t-stars">★★★★★</div><div class="t-quote">„KFZ-Chaves hat mein Auto schnell und zuverlässig repariert. Sehr empfehlenswert!"</div><div class="t-author">— Familie Müller, München</div><div class="t-car">VW Passat · Fahrzeugservice</div></div></div>
-          <div class="testimonial-card"><div class="testimonial-card-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=40')"></div><div class="testimonial-card-content"><div class="t-stars">★★★★★</div><div class="t-quote">„Endlich eine Werkstatt, der man vertrauen kann. Preis-Leistung ist unschlagbar in München."</div><div class="t-author">— Peter H., Aubing</div><div class="t-car">BMW X3 · Zahnriemenwechsel</div></div></div>
-          <div class="testimonial-card"><div class="testimonial-card-bg" style="background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=40')"></div><div class="testimonial-card-content"><div class="t-stars">★★★★★</div><div class="t-quote">„Schnelle Diagnose, ehrliche Beratung – kein Versuch etwas unnötig zu verkaufen. Genau so soll es sein!"</div><div class="t-author">— Claudia S., Pasing</div><div class="t-car">Mercedes A-Klasse · Bremsservice</div></div></div>
-          <div class="testimonial-card"><div class="testimonial-card-bg" style="background-image:url('https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&q=40')"></div><div class="testimonial-card-content"><div class="t-stars">★★★★★</div><div class="t-quote">„Innerhalb von einem Tag war das Auto fertig. Fantastischer Service, top Preis. Danke!"</div><div class="t-author">— Markus B., Freiham</div><div class="t-car">Toyota RAV4 · Inspektion + Reifen</div></div></div>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="cn-btn" onclick="carouselPrev()">‹</button>
-        <button class="cn-btn" onclick="carouselNext()">›</button>
-      </div>
-    </div>
-  </div>
-
   <!-- FAQ -->
   <div class="sec">
     <div class="sec-inner">
@@ -1319,7 +1408,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <h2 class="display">Wann ist mein Auto fällig?</h2>
       <p class="lead">Geben Sie Ihre Fahrzeugdaten ein – wir zeigen Ihnen, welche Services anstehen.</p>
       <div class="maint-checker">
-        <h3>🔍 Wartungscheck</h3>
+        <h3>Wartungscheck</h3>
         <p>Schnell herausfinden, was Ihr Fahrzeug als nächstes braucht.</p>
         <div class="mc-grid">
           <div class="mc-field"><label>Letztes Service (Jahr)</label><input type="number" id="mc-year" placeholder="z.B. 2022" min="2000" max="2026"/></div>
@@ -1328,9 +1417,9 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
           <button class="mc-btn" onclick="checkMaintenance()">Prüfen</button>
         </div>
         <div class="mc-result" id="mc-result">
-          <div class="mc-res-card" id="mc-oil"><div class="mc-res-icon">🛢️</div><div class="mc-res-label">Ölwechsel</div><div class="mc-res-val" id="mc-oil-val">—</div></div>
-          <div class="mc-res-card" id="mc-brake"><div class="mc-res-icon">🛑</div><div class="mc-res-label">Bremsen</div><div class="mc-res-val" id="mc-brake-val">—</div></div>
-          <div class="mc-res-card" id="mc-belt"><div class="mc-res-icon">🔗</div><div class="mc-res-label">Zahnriemen</div><div class="mc-res-val" id="mc-belt-val">—</div></div>
+          <div class="mc-res-card" id="mc-oil"><div class="mc-res-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><div class="mc-res-label">Ölwechsel</div><div class="mc-res-val" id="mc-oil-val">—</div></div>
+          <div class="mc-res-card" id="mc-brake"><div class="mc-res-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div class="mc-res-label">Bremsen</div><div class="mc-res-val" id="mc-brake-val">—</div></div>
+          <div class="mc-res-card" id="mc-belt"><div class="mc-res-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="mc-res-label">Zahnriemen</div><div class="mc-res-val" id="mc-belt-val">—</div></div>
         </div>
       </div>
     </div>
@@ -1342,7 +1431,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="sec-inner">
       <div class="referral-banner">
         <div>
-          <div class="rb-title">🤝 Freunde empfehlen, beide sparen</div>
+          <div class="rb-title">Freunde empfehlen, beide sparen</div>
           <div class="rb-sub">Empfehlen Sie KFZ Chaves einem Freund – Sie erhalten <strong>20 € Rabatt</strong> auf Ihren nächsten Service, Ihr Freund bekommt <strong>15 € Willkommensbonus</strong>. Einfach bei der Buchung erwähnen.</div>
         </div>
         <button class="rb-btn" onclick="showPage('booking')">Jetzt buchen & profitieren</button>
@@ -1377,7 +1466,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
             Du bist KFZ-Mechatroniker und suchst eine neue Herausforderung in einer familiären, modernen Werkstatt in München? Dann freuen wir uns darauf, dich kennenzulernen.
           </p>
           <a class="btn-blue" href="mailto:info@kfz-chaves.de?subject=Bewerbung%20als%20KFZ-Mechatroniker" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;font-size:15px;padding:14px 28px">
-            Jetzt bewerben ✉️
+            Jetzt bewerben <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
           <p style="margin-top:12px;font-size:13px;color:var(--grey)">
             Oder ruf uns direkt an: <a href="tel:08989557334" style="color:var(--blue);font-weight:600">089 89557334</a>
@@ -1389,11 +1478,11 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
           <div class="recruiting-card-inner">
             <div class="eyebrow eyebrow-white" style="margin-bottom:20px">Das erwartet dich</div>
             <ul class="recruiting-list">
-              <li><span class="rec-icon">👥</span><div><strong>Familiäres Team</strong><p>Kurze Wege, offene Kommunikation, echter Zusammenhalt</p></div></li>
-              <li><span class="rec-icon">🚗</span><div><strong>Abwechslungsreiche Fahrzeuge</strong><p>Alle Marken und Modelle – kein Tag wie der andere</p></div></li>
-              <li><span class="rec-icon">🔧</span><div><strong>Moderne Werkstattausstattung</strong><p>Professionelles Equipment und aktuelle Diagnosetechnik</p></div></li>
-              <li><span class="rec-icon">📈</span><div><strong>Langfristige Perspektive</strong><p>Sicherer Arbeitsplatz mit Entwicklungsmöglichkeiten</p></div></li>
-              <li><span class="rec-icon">🤝</span><div><strong>Faire Zusammenarbeit</strong><p>Zuverlässige Konditionen und respektvoller Umgang</p></div></li>
+              <li><span class="rec-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><strong>Familiäres Team</strong><p>Kurze Wege, offene Kommunikation, echter Zusammenhalt</p></div></li>
+              <li><span class="rec-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span><div><strong>Abwechslungsreiche Fahrzeuge</strong><p>Alle Marken und Modelle – kein Tag wie der andere</p></div></li>
+              <li><span class="rec-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><div><strong>Moderne Werkstattausstattung</strong><p>Professionelles Equipment und aktuelle Diagnosetechnik</p></div></li>
+              <li><span class="rec-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><div><strong>Langfristige Perspektive</strong><p>Sicherer Arbeitsplatz mit Entwicklungsmöglichkeiten</p></div></li>
+              <li><span class="rec-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><strong>Faire Zusammenarbeit</strong><p>Zuverlässige Konditionen und respektvoller Umgang</p></div></li>
             </ul>
           </div>
         </div>
@@ -1468,17 +1557,17 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <div class="step-panel" id="panel2">
         <p style="font-size:13px;color:var(--grey);margin-bottom:18px">Mehrfachauswahl möglich. Alle Preise sind Richtwerte inkl. MwSt.</p>
         <div class="option-grid">
-          <div class="option-card" onclick="toggleService(this,'Ölwechsel & Inspektion',89)"><div class="oc-icon">🔩</div><div class="oc-label">Ölwechsel & Inspektion</div><div class="oc-price">ab 89 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'Reifenwechsel',49)"><div class="oc-icon">🔄</div><div class="oc-label">Reifenwechsel</div><div class="oc-price">ab 49 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'Bremsenservice',69)"><div class="oc-icon">🛑</div><div class="oc-label">Bremsenservice</div><div class="oc-price">ab 69 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'Motorreparatur',0)"><div class="oc-icon">⚙️</div><div class="oc-label">Motorreparatur</div><div class="oc-price">Auf Anfrage</div></div>
-          <div class="option-card" onclick="toggleService(this,'Zahnriemenwechsel',249)"><div class="oc-icon">🔗</div><div class="oc-label">Zahnriemenwechsel</div><div class="oc-price">ab 249 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'Steuerkettenwechsel',349)"><div class="oc-icon">⛓️</div><div class="oc-label">Steuerkettenwechsel</div><div class="oc-price">ab 349 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'HU/AU',39)"><div class="oc-icon">🏁</div><div class="oc-label">HU/AU</div><div class="oc-price">ab 39 €</div></div>
-          <div class="option-card" onclick="toggleService(this,'Klimaanlagenservice',59)"><div class="oc-icon">❄️</div><div class="oc-label">Klimaanlage</div><div class="oc-price">ab 59 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Ölwechsel & Inspektion',89)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="oc-label">Ölwechsel & Inspektion</div><div class="oc-price">ab 89 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Reifenwechsel',49)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div><div class="oc-label">Reifenwechsel</div><div class="oc-price">ab 49 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Bremsenservice',69)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div class="oc-label">Bremsenservice</div><div class="oc-price">ab 69 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Motorreparatur',0)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div class="oc-label">Motorreparatur</div><div class="oc-price">Auf Anfrage</div></div>
+          <div class="option-card" onclick="toggleService(this,'Zahnriemenwechsel',249)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="oc-label">Zahnriemenwechsel</div><div class="oc-price">ab 249 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Steuerkettenwechsel',349)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="oc-label">Steuerkettenwechsel</div><div class="oc-price">ab 349 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'HU/AU',39)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="oc-label">HU/AU</div><div class="oc-price">ab 39 €</div></div>
+          <div class="option-card" onclick="toggleService(this,'Klimaanlagenservice',59)"><div class="oc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg></div><div class="oc-label">Klimaanlage</div><div class="oc-price">ab 59 €</div></div>
         </div>
         <div class="cost-calc" id="cost-calc" style="display:none">
-          <h4>🧮 Kostenrechner – Ihre Auswahl</h4>
+          <h4>Kostenrechner – Ihre Auswahl</h4>
           <div class="cost-rows" id="cost-rows"></div>
           <div class="cost-total-row"><span style="color:rgba(255,255,255,.7);font-size:14px;font-weight:700">Geschätzter Gesamtbetrag</span><span class="cost-total-val" id="cost-total">0 €</span></div>
           <p class="cost-note">* Richtwerte inkl. MwSt. Tatsächliche Kosten nach Fahrzeugprüfung. Services „Auf Anfrage" nicht enthalten.</p>
@@ -1563,16 +1652,16 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       </div>
       <!-- STEP 5 -->
       <div class="step-panel" id="panel5">
-        <div class="storno-notice"><span style="font-size:20px;flex-shrink:0">⚠️</span><p><strong>Stornierungsbedingungen:</strong> Kostenfreie Absage bis <strong>24 Stunden vor dem Termin</strong>. Bei späteren Absagen oder Nichterscheinen: Bearbeitungsgebühr <strong>25 €</strong>. Absagen: 089 89557334 oder info@kfz-chaves.de</p></div>
+        <div class="storno-notice"><span style="font-size:20px;flex-shrink:0"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><p><strong>Stornierungsbedingungen:</strong> Kostenfreie Absage bis <strong>24 Stunden vor dem Termin</strong>. Bei späteren Absagen oder Nichterscheinen: Bearbeitungsgebühr <strong>25 €</strong>. Absagen: 089 89557334 oder info@kfz-chaves.de</p></div>
         <div class="summary-box" id="summary-box"></div>
         <div class="consent-row"><input type="checkbox" id="consent-agb"/><label for="consent-agb">Ich akzeptiere die <span style="color:var(--blue);cursor:pointer" onclick="showPage('agb')">AGB</span> inkl. Stornierungsbedingungen.</label></div>
         <div class="consent-row"><input type="checkbox" id="consent-privacy"/><label for="consent-privacy">Ich habe die <span style="color:var(--blue);cursor:pointer" onclick="showPage('datenschutz')">Datenschutzerklärung</span> gelesen und stimme zu.</label></div>
         <div class="consent-row"><input type="checkbox" id="consent-contact"/><label for="consent-contact">KFZ Chaves darf mich zur Terminbestätigung kontaktieren.</label></div>
-        <div id="email-error" style="display:none;background:#fff0f0;border:1.5px solid var(--red-c);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--red-c);margin-bottom:8px">⚠️ E-Mail konnte nicht gesendet werden. Bitte rufen Sie an: <strong>089 89557334</strong></div>
+        <div id="email-error" style="display:none;background:#fff0f0;border:1.5px solid var(--red-c);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--red-c);margin-bottom:8px"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> E-Mail konnte nicht gesendet werden. Bitte rufen Sie an: <strong>089 89557334</strong></div>
       </div>
     </div>
     <div class="booking-success" id="booking-success">
-      <div class="success-icon">✅</div>
+      <div class="success-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
       <h3>Anfrage gesendet!</h3>
       <p>Vielen Dank, <span id="success-name"></span>. Ihre Anfrage wurde an KFZ Chaves gesendet. Bestätigung innerhalb von 24 Stunden.</p>
       <div class="conf-num" id="conf-num"></div>
@@ -1588,22 +1677,22 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
 
 <!-- ═══════ ÜBER UNS ═══════ -->
 <div id="page-ueber" class="page">
-  <div class="page-hero"><div <div class="page-hero-bg" style="background-image:url('/img/ee6cd168c7.jpg');background-size:cover;background-position:center center;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Über uns</div><h2 class="display white" style="text-align:center;margin-bottom:16px">KFZ Chaves –<br/>Meisterwerkstatt München.</h2><p style="text-align:center;color:rgba(255,255,255,.5);font-size:16px;max-width:520px;margin:0 auto">Inhabergeführt. Leidenschaftlich. Für alle Marken.</p></div></div>
-  <div class="sec"><div class="sec-inner"><div class="about-text-block"><p>Die KFZ Chaves Meisterwerkstatt steht für zuverlässigen Autoservice, fachgerechte Reparaturen und persönliche Beratung in München. Als freie Kfz-Werkstatt bieten wir umfassende Leistungen für alle Marken – schnell, transparent und zu fairen Preisen.</p><p>Von Wartung und Inspektion über Motorreparaturen bis hin zu Zahnriemen- und Steuerkettenwechseln: Jedes Fahrzeug wird mit höchster Sorgfalt betreut.</p><p>Kunden schätzen den persönlichen Service, die ehrliche Beratung und das starke Preis-Leistungs-Verhältnis.</p></div><div class="about-pillars"><div class="pillar"><div class="pillar-icon">🔧</div><div class="pillar-label">Wartung</div><h3>Inspektionen</h3></div><div class="pillar"><div class="pillar-icon">🛠️</div><div class="pillar-label">Reparatur</div><h3>Motorreparatur</h3></div><div class="pillar"><div class="pillar-icon">⚙️</div><div class="pillar-label">Wechsel</div><h3>Zahnriemen & Steuerketten</h3></div><div class="pillar"><div class="pillar-icon">👤</div><div class="pillar-label">Service</div><h3>Persönliche Beratung</h3></div></div></div></div>
+  <div class="page-hero"><div class="page-hero-bg" style="background-image:url('/img/ee6cd168c7.jpg');background-size:cover;background-position:center center;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Über uns</div><h2 class="display white" style="text-align:center;margin-bottom:16px">KFZ Chaves –<br/>Meisterwerkstatt München.</h2><p style="text-align:center;color:rgba(255,255,255,.5);font-size:16px;max-width:520px;margin:0 auto">Inhabergeführt. Leidenschaftlich. Für alle Marken.</p></div></div>
+  <div class="sec"><div class="sec-inner"><div class="about-text-block"><p>Die KFZ Chaves Meisterwerkstatt steht für zuverlässigen Autoservice, fachgerechte Reparaturen und persönliche Beratung in München. Als freie Kfz-Werkstatt bieten wir umfassende Leistungen für alle Marken – schnell, transparent und zu fairen Preisen.</p><p>Von Wartung und Inspektion über Motorreparaturen bis hin zu Zahnriemen- und Steuerkettenwechseln: Jedes Fahrzeug wird mit höchster Sorgfalt betreut.</p><p>Kunden schätzen den persönlichen Service, die ehrliche Beratung und das starke Preis-Leistungs-Verhältnis.</p></div><div class="about-pillars"><div class="pillar"><div class="pillar-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="pillar-label">Wartung</div><h3>Inspektionen</h3></div><div class="pillar"><div class="pillar-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="pillar-label">Reparatur</div><h3>Motorreparatur</h3></div><div class="pillar"><div class="pillar-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div class="pillar-label">Wechsel</div><h3>Zahnriemen & Steuerketten</h3></div><div class="pillar"><div class="pillar-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="pillar-label">Service</div><h3>Persönliche Beratung</h3></div></div></div></div>
   <div class="sec sec-surface"><div class="sec-inner"><div class="quality-grid"><div><div class="eyebrow">Unser Versprechen</div><h2 class="display">Qualität, die hält.</h2><p class="lead" style="margin-bottom:20px">Wir verwenden modernste Techniken und hochwertige Ersatzteile für nachhaltige Lösungen.</p><button class="btn-blue" onclick="showPage('booking')" style="margin-top:16px">Jetzt Termin buchen</button></div><div class="quality-img" style="overflow:hidden;border-radius:var(--r-lg);height:380px"><img src="/img/d223e4bfb3.jpg" alt="KFZ Chaves Wartezimmer" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/></div></div></div></div>
 </div>
 
 <!-- ═══════ SERVICES ═══════ -->
 <div id="page-services" class="page">
-  <div class="page-hero"><div <div class="page-hero-bg" style="background-image:url('/img/0f7d12f79a.jpg');background-size:cover;background-position:center center;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Unsere Services</div><h2 class="display white" style="text-align:center;margin-bottom:12px">Alles aus einer Hand.</h2><p style="text-align:center;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;font-size:15px">Für alle Marken. Zu fairen, transparenten Preisen.</p></div></div>
+  <div class="page-hero"><div class="page-hero-bg" style="background-image:url('/img/0f7d12f79a.jpg');background-size:cover;background-position:center center;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Unsere Services</div><h2 class="display white" style="text-align:center;margin-bottom:12px">Alles aus einer Hand.</h2><p style="text-align:center;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;font-size:15px">Für alle Marken. Zu fairen, transparenten Preisen.</p></div></div>
   <div class="sec"><div class="sec-inner"><div class="eyebrow">Schnelle Services</div><h2 class="display">Schnell. Sicher. Professionell.</h2><div class="schnell-grid"><div class="schnell-card"><div class="sc-img"><img src="/img/271dae0dc4.webp" alt="Reifenwechsel KFZ Chaves" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/></div><div class="sc-body"><h3>Reifenwechsel & Service</h3><p>Auswuchten, Druckprüfung und Profilkontrolle inklusive.</p></div></div><div class="schnell-card"><div class="sc-img"><img src="/img/a69f655abd.jpg" alt="Ölwechsel Inspektion KFZ Chaves" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/></div><div class="sc-body"><h3>Ölwechsel & Inspektion</h3><p>Für optimalen Motorzustand und lange Lebensdauer.</p></div></div><div class="schnell-card"><div class="sc-img"><img src="/img/4425dd8344.jpg" alt="Bremsenservice KFZ Chaves" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/></div><div class="sc-body"><h3>Bremsenservice</h3><p>Kontrolle, Wartung und Austausch für maximale Sicherheit.</p></div></div></div></div></div>
-  <div class="sec sec-surface"><div class="sec-inner"><div class="eyebrow">Fachreparaturen</div><h2 class="display">Umfassende Werkstattleistungen.</h2><div class="services-list"><div class="service-row"><div class="service-row-icon">🔧</div><div><h3>Wartung & Inspektion</h3><p>Umfassende Prüfung aller Fahrzeugsysteme.</p></div><div class="service-row-price">ab 89 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon">⚙️</div><div><h3>Motorreparatur</h3><p>Komplexe Reparaturen fachgerecht durchgeführt.</p></div><div class="service-row-price">Auf Anfrage<span>Kostenvoranschlag</span></div></div><div class="service-row"><div class="service-row-icon">🔗</div><div><h3>Zahnriemen- & Steuerkettenwechsel</h3><p>Rechtzeitiger Wechsel vermeidet teure Schäden.</p></div><div class="service-row-price">ab 249 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon">🏁</div><div><h3>HU/AU Vorbereitung</h3><p>Optimale Vorbereitung auf die Hauptuntersuchung.</p></div><div class="service-row-price">ab 39 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon">🛑</div><div><h3>Bremsenservice & Bremsbelagwechsel</h3><p>Maximale Bremssicherheit für alle Fahrzeugtypen.</p></div><div class="service-row-price">ab 69 €<span>pro Achse</span></div></div><div class="service-row"><div class="service-row-icon">❄️</div><div><h3>Klimaanlagenservice</h3><p>Befüllung, Kontrolle und Desinfektion.</p></div><div class="service-row-price">ab 59 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon">🔄</div><div><h3>Reifenwechsel & Einlagerung</h3><p>Schnell, präzise, mit Auswuchten.</p></div><div class="service-row-price">ab 49 €<span>inkl. MwSt.</span></div></div></div><div style="text-align:center;margin-top:36px"><button class="btn-blue" onclick="showPage('booking')">Direkt Termin buchen</button></div></div></div>
+  <div class="sec sec-surface"><div class="sec-inner"><div class="eyebrow">Fachreparaturen</div><h2 class="display">Umfassende Werkstattleistungen.</h2><div class="services-list"><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><h3>Wartung & Inspektion</h3><p>Umfassende Prüfung aller Fahrzeugsysteme.</p></div><div class="service-row-price">ab 89 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div><h3>Motorreparatur</h3><p>Komplexe Reparaturen fachgerecht durchgeführt.</p></div><div class="service-row-price">Auf Anfrage<span>Kostenvoranschlag</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><h3>Zahnriemen- & Steuerkettenwechsel</h3><p>Rechtzeitiger Wechsel vermeidet teure Schäden.</p></div><div class="service-row-price">ab 249 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>HU/AU Vorbereitung</h3><p>Optimale Vorbereitung auf die Hauptuntersuchung.</p></div><div class="service-row-price">ab 39 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><h3>Bremsenservice & Bremsbelagwechsel</h3><p>Maximale Bremssicherheit für alle Fahrzeugtypen.</p></div><div class="service-row-price">ab 69 €<span>pro Achse</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg></div><div><h3>Klimaanlagenservice</h3><p>Befüllung, Kontrolle und Desinfektion.</p></div><div class="service-row-price">ab 59 €<span>inkl. MwSt.</span></div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div><div><h3>Reifenwechsel & Einlagerung</h3><p>Schnell, präzise, mit Auswuchten.</p></div><div class="service-row-price">ab 49 €<span>inkl. MwSt.</span></div></div></div><div style="text-align:center;margin-top:36px"><button class="btn-blue" onclick="showPage('booking')">Direkt Termin buchen</button></div></div></div>
 </div>
 
 <!-- ═══════ KONTAKT ═══════ -->
 <div id="page-kontakt" class="page">
-  <div class="page-hero"><div <div class="page-hero-bg" style="background-image:url('/img/b29a21a0bf.webp');background-size:cover;background-position:center top;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Kontakt</div><h2 class="display white" style="text-align:center;margin-bottom:12px">Wir freuen uns auf Sie.</h2><p style="text-align:center;color:rgba(255,255,255,.5);font-size:15px">Antwort innerhalb von 24 Stunden.</p></div></div>
-  <div class="sec"><div class="sec-inner"><div class="kontakt-layout"><div><div class="kinfo-card"><div class="kinfo-card-bg"></div><div class="kinfo-card-content"><h3>Kontaktinformationen</h3><div class="kinfo-item"><div class="ki-icon">📞</div><div><div class="ki-label">Telefon</div><div class="ki-val"><a href="tel:08989557334">089 89557334</a></div></div></div><div class="kinfo-item"><div class="ki-icon">✉️</div><div><div class="ki-label">E-Mail</div><div class="ki-val"><a href="mailto:info@kfz-chaves.de">info@kfz-chaves.de</a></div></div></div><div class="kinfo-item"><div class="ki-icon">📍</div><div><div class="ki-label">Adresse</div><div class="ki-val">Bodenseestr. 275<br/>81249 München-Aubing</div></div></div><div class="hours-block"><h4>Öffnungszeiten</h4><div class="hour-row"><span class="hour-day">Mo–Do</span><span class="hour-time">08:00–12:00, 13:00–18:00</span></div><div class="hour-row"><span class="hour-day">Freitag</span><span class="hour-time">08:00–12:00, 13:00–17:00</span></div><div class="hour-row"><span class="hour-day">Samstag</span><span class="hour-time closed">Geschlossen</span></div><div class="hour-row"><span class="hour-day">Sonntag</span><span class="hour-time closed">Geschlossen</span></div></div></div></div><div class="map-embed" style="position:relative;width:100%;overflow:hidden">
+  <div class="page-hero"><div class="page-hero-bg" style="background-image:url('/img/b29a21a0bf.webp');background-size:cover;background-position:center top;filter:brightness(.28)"></div><div class="page-hero-content"><div class="eyebrow eyebrow-white" style="text-align:center">Kontakt</div><h2 class="display white" style="text-align:center;margin-bottom:12px">Wir freuen uns auf Sie.</h2><p style="text-align:center;color:rgba(255,255,255,.5);font-size:15px">Antwort innerhalb von 24 Stunden.</p></div></div>
+  <div class="sec"><div class="sec-inner"><div class="kontakt-layout"><div><div class="kinfo-card"><div class="kinfo-card-bg"></div><div class="kinfo-card-content"><h3>Kontaktinformationen</h3><div class="kinfo-item"><div class="ki-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ki-label">Telefon</div><div class="ki-val"><a href="tel:08989557334">089 89557334</a></div></div></div><div class="kinfo-item"><div class="ki-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="ki-label">E-Mail</div><div class="ki-val"><a href="mailto:info@kfz-chaves.de">info@kfz-chaves.de</a></div></div></div><div class="kinfo-item"><div class="ki-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ki-label">Adresse</div><div class="ki-val">Bodenseestr. 275<br/>81249 München-Aubing</div></div></div><div class="hours-block"><h4>Öffnungszeiten</h4><div class="hour-row"><span class="hour-day">Mo–Do</span><span class="hour-time">08:00–12:00, 13:00–18:00</span></div><div class="hour-row"><span class="hour-day">Freitag</span><span class="hour-time">08:00–12:00, 13:00–17:00</span></div><div class="hour-row"><span class="hour-day">Samstag</span><span class="hour-time closed">Geschlossen</span></div><div class="hour-row"><span class="hour-day">Sonntag</span><span class="hour-time closed">Geschlossen</span></div></div></div></div><div class="map-embed" style="position:relative;width:100%;overflow:hidden">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.5!2d11.37!3d48.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e742a7e6b0001%3A0x1!2sBodenseestr.+275%2C+81249+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1"
     width="100%" height="100%" style="border:0;display:block"
@@ -1613,7 +1702,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   </iframe>
 </div>
 <a href="https://maps.google.com/?q=Bodenseestr.+275,+81249+München" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;background:var(--blue);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">
-  📍 Route in Google Maps öffnen
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Route in Google Maps öffnen
 </a></div><div class="kform"><h3>Nachricht senden</h3><div class="form-row"><div class="field"><label>Vorname *</label><input type="text" id="kf-fname" placeholder="Max"/></div><div class="field"><label>Nachname</label><input type="text" id="kf-lname" placeholder="Mustermann"/></div></div><div class="form-row"><div class="field"><label>E-Mail *</label><input type="email" id="kf-email" placeholder="max@beispiel.de"/></div><div class="field"><label>Telefon</label><input type="tel" id="kf-phone" placeholder="+49 89 …"/></div></div><div class="form-row full"><div class="field"><label>Betreff</label><select id="kf-subject"><option>Terminanfrage</option><option>Kostenvoranschlag</option><option>Allgemeine Frage</option><option>Feedback</option><option>Sonstiges</option></select></div></div><div class="form-row full"><div class="field"><label>Nachricht *</label><textarea id="kf-message" placeholder="Wie können wir Ihnen helfen?"></textarea></div></div><button class="btn-blue" id="kf-btn" onclick="sendKontakt()" style="width:100%;margin-top:8px;padding:13px;font-size:14px;border-radius:10px">Nachricht senden</button><div id="kf-error" style="display:none;margin-top:14px;background:#fff0f0;border:1.5px solid var(--red-c);border-radius:10px;padding:12px;font-size:13px;color:#a1201a"></div><div id="kf-success" style="display:none;margin-top:14px;background:var(--blue-light);color:var(--blue-dark);border-radius:10px;padding:12px;text-align:center;font-size:13px;font-weight:600">✓ Nachricht gesendet! Wir melden uns bald.</div></div></div></div></div>
 </div>
 
@@ -1629,12 +1718,12 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   </div>
   <div class="sec"><div class="sec-inner">
     <div class="blog-cards-grid">
-      <div class="blog-card" onclick="showPage('blog-oel')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a2010,#0d3018)">🔧</div><div class="blog-card-body"><span class="blog-tag">Wartung</span><h3>Ölwechsel: Wann ist der richtige Zeitpunkt?</h3><p>Intervalle, Ölsorten und Warnzeichen.</p><div class="blog-card-date">10. Juni 2026 · 5 Min.</div></div></div>
-      <div class="blog-card" onclick="showPage('blog-reifen')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a1018,#101828)">🔄</div><div class="blog-card-body"><span class="blog-tag">Reifen</span><h3>Sommer- vs. Winterreifen: Was gilt wann?</h3><p>Regeln, Unterschiede und Tipps.</p><div class="blog-card-date">28. Mai 2026 · 4 Min.</div></div></div>
-      <div class="blog-card" onclick="showPage('blog-zahnriemen')"><div class="blog-card-img" style="background:linear-gradient(135deg,#1a0a0a,#2a1010)">⛓️</div><div class="blog-card-body"><span class="blog-tag">Reparatur</span><h3>Zahnriemenwechsel: Nicht warten!</h3><p>Warum rechtzeitiger Wechsel Tausende spart.</p><div class="blog-card-date">12. Mai 2026 · 5 Min.</div></div></div>
-      <div class="blog-card" onclick="showPage('blog-hu')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a1018,#101828)">🏁</div><div class="blog-card-body"><span class="blog-tag">HU/AU</span><h3>HU/AU bestehen: So bereiten Sie sich vor</h3><p>Die häufigsten Mängel vermeiden.</p><div class="blog-card-date">3. Mai 2026 · 4 Min.</div></div></div>
-      <div class="blog-card" onclick="showPage('blog-elektro')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a0a18,#101020)">⚡</div><div class="blog-card-body"><span class="blog-tag">Elektro</span><h3>Elektroauto: Was ist in der Werkstatt anders?</h3><p>Was E-Autos wirklich brauchen.</p><div class="blog-card-date">20. Apr 2026 · 4 Min.</div></div></div>
-      <div class="blog-card" onclick="showPage('blog-bremse')"><div class="blog-card-img" style="background:linear-gradient(135deg,#1a0a10,#281018)">🛑</div><div class="blog-card-body"><span class="blog-tag">Sicherheit</span><h3>5 Zeichen: Bremsen müssen gewechselt werden</h3><p>Diese Warnsignale ernst nehmen.</p><div class="blog-card-date">8. Apr 2026 · 3 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-oel')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a2010,#0d3018)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="blog-card-body"><span class="blog-tag">Wartung</span><h3>Ölwechsel: Wann ist der richtige Zeitpunkt?</h3><p>Intervalle, Ölsorten und Warnzeichen.</p><div class="blog-card-date">10. Juni 2026 · 5 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-reifen')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a1018,#101828)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div><div class="blog-card-body"><span class="blog-tag">Reifen</span><h3>Sommer- vs. Winterreifen: Was gilt wann?</h3><p>Regeln, Unterschiede und Tipps.</p><div class="blog-card-date">28. Mai 2026 · 4 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-zahnriemen')"><div class="blog-card-img" style="background:linear-gradient(135deg,#1a0a0a,#2a1010)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="blog-card-body"><span class="blog-tag">Reparatur</span><h3>Zahnriemenwechsel: Nicht warten!</h3><p>Warum rechtzeitiger Wechsel Tausende spart.</p><div class="blog-card-date">12. Mai 2026 · 5 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-hu')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a1018,#101828)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="blog-card-body"><span class="blog-tag">HU/AU</span><h3>HU/AU bestehen: So bereiten Sie sich vor</h3><p>Die häufigsten Mängel vermeiden.</p><div class="blog-card-date">3. Mai 2026 · 4 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-elektro')"><div class="blog-card-img" style="background:linear-gradient(135deg,#0a0a18,#101020)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="blog-card-body"><span class="blog-tag">Elektro</span><h3>Elektroauto: Was ist in der Werkstatt anders?</h3><p>Was E-Autos wirklich brauchen.</p><div class="blog-card-date">20. Apr 2026 · 4 Min.</div></div></div>
+      <div class="blog-card" onclick="showPage('blog-bremse')"><div class="blog-card-img" style="background:linear-gradient(135deg,#1a0a10,#281018)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div class="blog-card-body"><span class="blog-tag">Sicherheit</span><h3>5 Zeichen: Bremsen müssen gewechselt werden</h3><p>Diese Warnsignale ernst nehmen.</p><div class="blog-card-date">8. Apr 2026 · 3 Min.</div></div></div>
     </div>
   </div></div>
 </div>
@@ -1651,7 +1740,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">Wartung</span><span style="font-size:12px;color:var(--grey)">10. Juni 2026 · 5 Min. Lesezeit</span></div>
     <div class="blog-intro">Der Ölwechsel ist die wichtigste und günstigste Wartungsmaßnahme. Wer zu lange wartet, riskiert teure Motorschäden.</div>
-    <h2>Warum ist Ölwechsel so wichtig?</h2><p>Motoröl schmiert alle beweglichen Teile, kühlt den Motor und reinigt ihn von Verbrennungsrückständen. Mit der Zeit verliert es diese Eigenschaften. Ein Ölwechsel kostet bei KFZ Chaves ab <strong>89 €</strong> – ein Motorschaden das Zehnfache.</p><h2>Intervalle</h2><ul><li><strong>Benzin:</strong> alle 10.000–15.000 km oder jährlich</li><li><strong>Diesel:</strong> alle 10.000–20.000 km oder jährlich</li><li><strong>Longlife:</strong> bis 30.000 km, max. 2 Jahre</li></ul><div class="blog-tip"><strong>💡 Tipp:</strong> Serviceheft prüfen – dort stehen die exakten Herstellerintervalle.</div><h2>Warnzeichen</h2><ul><li>Ölkontrollleuchte leuchtet</li><li>Öl am Peilstab schwarz und zähflüssig</li><li>Motor läuft lauter als gewohnt</li></ul><div class="blog-warning"><strong>⚠️ Achtung:</strong> Öldruckwarnleuchte an – sofort anhalten! Weiterfahren kann Totalschaden verursachen.</div>
+    <h2>Warum ist Ölwechsel so wichtig?</h2><p>Motoröl schmiert alle beweglichen Teile, kühlt den Motor und reinigt ihn von Verbrennungsrückständen. Mit der Zeit verliert es diese Eigenschaften. Ein Ölwechsel kostet bei KFZ Chaves ab <strong>89 €</strong> – ein Motorschaden das Zehnfache.</p><h2>Intervalle</h2><ul><li><strong>Benzin:</strong> alle 10.000–15.000 km oder jährlich</li><li><strong>Diesel:</strong> alle 10.000–20.000 km oder jährlich</li><li><strong>Longlife:</strong> bis 30.000 km, max. 2 Jahre</li></ul><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Tipp:</strong> Serviceheft prüfen – dort stehen die exakten Herstellerintervalle.</div><h2>Warnzeichen</h2><ul><li>Ölkontrollleuchte leuchtet</li><li>Öl am Peilstab schwarz und zähflüssig</li><li>Motor läuft lauter als gewohnt</li></ul><div class="blog-warning"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Achtung:</strong> Öldruckwarnleuchte an – sofort anhalten! Weiterfahren kann Totalschaden verursachen.</div>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1672,7 +1761,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">Reifen</span><span style="font-size:12px;color:var(--grey)">28. Mai 2026 · 4 Min. Lesezeit</span></div>
     <div class="blog-intro">In Deutschland gilt die situative Winterreifenpflicht. Was das bedeutet und worauf Sie achten müssen.</div>
-    <h2>Die situative Winterreifenpflicht</h2><p>Bei Eis, Schnee oder Reifglätte müssen Winterreifen montiert sein. Verstoß: <strong>60 € Bußgeld + 1 Punkt</strong>.</p><div class="blog-tip"><strong>💡 O-bis-O-Regel:</strong> Oktober bis Ostern Winterreifen. Unter 7 °C deutlich sicherer.</div><h2>Die Unterschiede</h2><ul><li><strong>Winterreifen:</strong> bleiben bei Kälte weich, verdrängen Schnee effektiv</li><li><strong>Sommerreifen:</strong> optimiert für Wärme, besserer Grip im Sommer</li></ul><h2>Wann tauschen?</h2><ul><li>Profil unter 1,6 mm (gesetzlich) – empfohlen 4 mm</li><li>Alter über 6–8 Jahre</li><li>Sichtbare Risse oder Beulen</li></ul>
+    <h2>Die situative Winterreifenpflicht</h2><p>Bei Eis, Schnee oder Reifglätte müssen Winterreifen montiert sein. Verstoß: <strong>60 € Bußgeld + 1 Punkt</strong>.</p><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> O-bis-O-Regel:</strong> Oktober bis Ostern Winterreifen. Unter 7 °C deutlich sicherer.</div><h2>Die Unterschiede</h2><ul><li><strong>Winterreifen:</strong> bleiben bei Kälte weich, verdrängen Schnee effektiv</li><li><strong>Sommerreifen:</strong> optimiert für Wärme, besserer Grip im Sommer</li></ul><h2>Wann tauschen?</h2><ul><li>Profil unter 1,6 mm (gesetzlich) – empfohlen 4 mm</li><li>Alter über 6–8 Jahre</li><li>Sichtbare Risse oder Beulen</li></ul>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1693,7 +1782,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">Reparatur</span><span style="font-size:12px;color:var(--grey)">12. Mai 2026 · 5 Min. Lesezeit</span></div>
     <div class="blog-intro">Ein gerissener Zahnriemen bedeutet oft Totalschaden am Motor – dabei ist der Wechsel planbar und günstig.</div>
-    <h2>Was macht der Zahnriemen?</h2><p>Er synchronisiert Kurbelwelle und Nockenwelle. Reißt er, schlagen Kolben in Ventile – <strong>Motorschaden nahezu unvermeidlich</strong>.</p><p>Kosten nach Riss: <strong>3.000–8.000 €</strong>. Vorbeugender Wechsel: ab <strong>249 €</strong>.</p><div class="blog-warning"><strong>⚠️ Kein Warnzeichen:</strong> Der Zahnriemen reißt ohne Vorwarnung.</div><h2>Wann wechseln?</h2><ul><li>Typisch: alle 60.000–120.000 km</li><li>Zeitlich: spätestens alle 4–6 Jahre</li></ul><div class="blog-tip"><strong>💡 Immer</strong> auch Spannrolle und Umlenkrolle gleichzeitig tauschen.</div>
+    <h2>Was macht der Zahnriemen?</h2><p>Er synchronisiert Kurbelwelle und Nockenwelle. Reißt er, schlagen Kolben in Ventile – <strong>Motorschaden nahezu unvermeidlich</strong>.</p><p>Kosten nach Riss: <strong>3.000–8.000 €</strong>. Vorbeugender Wechsel: ab <strong>249 €</strong>.</p><div class="blog-warning"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Kein Warnzeichen:</strong> Der Zahnriemen reißt ohne Vorwarnung.</div><h2>Wann wechseln?</h2><ul><li>Typisch: alle 60.000–120.000 km</li><li>Zeitlich: spätestens alle 4–6 Jahre</li></ul><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Immer</strong> auch Spannrolle und Umlenkrolle gleichzeitig tauschen.</div>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1714,7 +1803,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">HU/AU</span><span style="font-size:12px;color:var(--grey)">3. Mai 2026 · 4 Min. Lesezeit</span></div>
     <div class="blog-intro">Mit der richtigen Vorbereitung bestehen Sie die Hauptuntersuchung beim ersten Versuch.</div>
-    <h2>Was prüft der TÜV?</h2><ul><li><strong>Beleuchtung:</strong> Defekte Birnen, Scheinwerfer falsch eingestellt</li><li><strong>Bremsen:</strong> Verschlissene Beläge, korrodierte Scheiben</li><li><strong>Reifen:</strong> Profil unter 1,6 mm, Alter über 6 Jahre</li><li><strong>Fahrwerk:</strong> Stoßdämpfer, Spurstangen, Gelenke</li></ul><div class="blog-tip"><strong>💡 Tipp:</strong> 2 Wochen vorher zu KFZ Chaves – wir machen einen Vorcheck ab 39 €.</div><h2>HU-Intervalle</h2><ul><li>Neuwagen: erste HU nach 3 Jahren</li><li>Danach: alle 2 Jahre</li></ul>
+    <h2>Was prüft der TÜV?</h2><ul><li><strong>Beleuchtung:</strong> Defekte Birnen, Scheinwerfer falsch eingestellt</li><li><strong>Bremsen:</strong> Verschlissene Beläge, korrodierte Scheiben</li><li><strong>Reifen:</strong> Profil unter 1,6 mm, Alter über 6 Jahre</li><li><strong>Fahrwerk:</strong> Stoßdämpfer, Spurstangen, Gelenke</li></ul><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Tipp:</strong> 2 Wochen vorher zu KFZ Chaves – wir machen einen Vorcheck ab 39 €.</div><h2>HU-Intervalle</h2><ul><li>Neuwagen: erste HU nach 3 Jahren</li><li>Danach: alle 2 Jahre</li></ul>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1735,7 +1824,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">Elektro</span><span style="font-size:12px;color:var(--grey)">20. April 2026 · 4 Min. Lesezeit</span></div>
     <div class="blog-intro">E-Autos brauchen weniger Wartung – aber nicht keine. Was regelmäßig geprüft werden muss.</div>
-    <h2>Kein Öl, aber trotzdem Wartung</h2><p>Kein Ölwechsel, keine Zündkerzen. Aber diese Punkte brauchen Aufmerksamkeit:</p><ul><li><strong>Bremsen:</strong> Durch Rekuperation rosten Scheiben schneller</li><li><strong>Batterie-Kühlsystem:</strong> Regelmäßig prüfen</li><li><strong>Reifen:</strong> E-Autos sind schwerer – schnellerer Verschleiß</li><li><strong>Bremsflüssigkeit:</strong> Alle 2 Jahre wechseln</li></ul><div class="blog-tip"><strong>💡</strong> Batteriezustand (State of Health) regelmäßig auslesen lassen.</div>
+    <h2>Kein Öl, aber trotzdem Wartung</h2><p>Kein Ölwechsel, keine Zündkerzen. Aber diese Punkte brauchen Aufmerksamkeit:</p><ul><li><strong>Bremsen:</strong> Durch Rekuperation rosten Scheiben schneller</li><li><strong>Batterie-Kühlsystem:</strong> Regelmäßig prüfen</li><li><strong>Reifen:</strong> E-Autos sind schwerer – schnellerer Verschleiß</li><li><strong>Bremsflüssigkeit:</strong> Alle 2 Jahre wechseln</li></ul><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></strong> Batteriezustand (State of Health) regelmäßig auslesen lassen.</div>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1756,7 +1845,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
     <div class="blog-back" onclick="showPage('blog')">← Zurück zum Blog</div>
     <div class="blog-meta"><span class="blog-tag">Sicherheit</span><span style="font-size:12px;color:var(--grey)">8. April 2026 · 3 Min. Lesezeit</span></div>
     <div class="blog-intro">Die Bremse ist das wichtigste Sicherheitssystem. Diese Warnsignale unbedingt ernst nehmen.</div>
-    <h2>1. Quietschen beim Bremsen</h2><p>Metallisches Quietschen = Verschleißindikator ausgelöst. Beläge sofort wechseln.</p><h2>2. Schleifen oder Knacken</h2><p>Beläge komplett abgefahren – Metall auf Metall. Sofort Werkstatt.</p><h2>3. Längerer Bremsweg</h2><p>Deutet auf verschlissene Beläge oder niedrigen Bremsflüssigkeitsstand hin.</p><div class="blog-warning"><strong>⚠️</strong> Verändertes Bremsverhalten = sofort anhalten. Tel: <strong>089 89557334</strong></div><h2>4. Vibrieren beim Bremsen</h2><p>Verzogene Bremsscheiben oder einseitig verschlissene Beläge.</p><h2>5. Bremsflüssigkeit niedrig</h2><p>Alle 2 Jahre wechseln – sie nimmt Feuchtigkeit auf.</p><div class="blog-tip"><strong>💡</strong> Bremsbeläge: 30.000–70.000 km. Scheiben: 60.000–120.000 km.</div>
+    <h2>1. Quietschen beim Bremsen</h2><p>Metallisches Quietschen = Verschleißindikator ausgelöst. Beläge sofort wechseln.</p><h2>2. Schleifen oder Knacken</h2><p>Beläge komplett abgefahren – Metall auf Metall. Sofort Werkstatt.</p><h2>3. Längerer Bremsweg</h2><p>Deutet auf verschlissene Beläge oder niedrigen Bremsflüssigkeitsstand hin.</p><div class="blog-warning"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></strong> Verändertes Bremsverhalten = sofort anhalten. Tel: <strong>089 89557334</strong></div><h2>4. Vibrieren beim Bremsen</h2><p>Verzogene Bremsscheiben oder einseitig verschlissene Beläge.</p><h2>5. Bremsflüssigkeit niedrig</h2><p>Alle 2 Jahre wechseln – sie nimmt Feuchtigkeit auf.</p><div class="blog-tip"><strong><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></strong> Bremsbeläge: 30.000–70.000 km. Scheiben: 60.000–120.000 km.</div>
     <div class="blog-cta-box">
       <h3>Jetzt Termin vereinbaren</h3>
       <p>Professioneller Service in München – für alle Marken.</p>
@@ -1770,7 +1859,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&q=80');filter:brightness(.25)"></div>
     <div class="page-hero-content">
       <span class="eyebrow eyebrow-white" style="text-align:center;display:block">Service</span>
-      <h2 class="display white" style="text-align:center;margin-bottom:10px">🔧 Wartung & Inspektion</h2>
+      <h2 class="display white" style="text-align:center;margin-bottom:10px">Wartung & Inspektion</h2>
     </div>
   </div>
   <div class="sec"><div class="sec-inner">
@@ -1778,7 +1867,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <p style="font-size:17px;color:var(--mid);line-height:1.75;margin-bottom:32px">Regelmäßige Wartung ist die wichtigste Maßnahme für ein langlebiges Fahrzeug. Bei KFZ Chaves führen wir Inspektionen nach Herstellervorgaben für alle Marken und Modelle durch – schnell, transparent und zu fairen Preisen.</p>
       <h2 class="display" style="font-size:1.5rem;margin-bottom:20px">Unsere Leistungen</h2>
       <div class="services-list" style="margin-bottom:40px">
-        <div class="service-row"><div class="service-row-icon">🔧</div><div><h3>Ölwechsel inkl. Ölfilter</h3><p>Motoröl und Filter nach Herstellerspezifikation</p></div><div class="service-row-price">ab 89 €</div></div><div class="service-row"><div class="service-row-icon">🔍</div><div><h3>Sichtprüfung & Diagnose</h3><p>Vollständiger Check aller sicherheitsrelevanten Komponenten</p></div><div class="service-row-price">ab 39 €</div></div><div class="service-row"><div class="service-row-icon">💡</div><div><h3>Fahrzeugdiagnose (OBD)</h3><p>Fehlerauslesen und Auswertung per Diagnosegerät</p></div><div class="service-row-price">ab 49 €</div></div><div class="service-row"><div class="service-row-icon">📋</div><div><h3>Herstellerinspektion</h3><p>Vollständige Inspektion nach Herstellerplan inkl. Eintrag ins Serviceheft</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon">❄️</div><div><h3>Klimaanlage Service</h3><p>Prüfung, Reinigung und Befüllung der Klimaanlage</p></div><div class="service-row-price">ab 59 €</div></div>
+        <div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><h3>Ölwechsel inkl. Ölfilter</h3><p>Motoröl und Filter nach Herstellerspezifikation</p></div><div class="service-row-price">ab 89 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><div><h3>Sichtprüfung & Diagnose</h3><p>Vollständiger Check aller sicherheitsrelevanten Komponenten</p></div><div class="service-row-price">ab 39 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div><div><h3>Fahrzeugdiagnose (OBD)</h3><p>Fehlerauslesen und Auswertung per Diagnosegerät</p></div><div class="service-row-price">ab 49 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div><div><h3>Herstellerinspektion</h3><p>Vollständige Inspektion nach Herstellerplan inkl. Eintrag ins Serviceheft</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg></div><div><h3>Klimaanlage Service</h3><p>Prüfung, Reinigung und Befüllung der Klimaanlage</p></div><div class="service-row-price">ab 59 €</div></div>
       </div>
       <div style="background:var(--blue-light);border-radius:var(--r-md);padding:32px;text-align:center">
         <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Kostenvoranschlag gewünscht?</h3>
@@ -1794,7 +1883,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&q=80');filter:brightness(.25)"></div>
     <div class="page-hero-content">
       <span class="eyebrow eyebrow-white" style="text-align:center;display:block">Service</span>
-      <h2 class="display white" style="text-align:center;margin-bottom:10px">⚙️ Motorreparatur</h2>
+      <h2 class="display white" style="text-align:center;margin-bottom:10px">Motorreparatur</h2>
     </div>
   </div>
   <div class="sec"><div class="sec-inner">
@@ -1802,7 +1891,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <p style="font-size:17px;color:var(--mid);line-height:1.75;margin-bottom:32px">Motorprobleme sind oft komplex – aber mit der richtigen Diagnose und erfahrenen Mechanikern lösbar. KFZ Chaves repariert Motoren aller Marken fachgerecht und nachhaltig. Wir erklären Ihnen den Befund transparent und finden die wirtschaftlichste Lösung.</p>
       <h2 class="display" style="font-size:1.5rem;margin-bottom:20px">Unsere Leistungen</h2>
       <div class="services-list" style="margin-bottom:40px">
-        <div class="service-row"><div class="service-row-icon">⚙️</div><div><h3>Motordiagnose</h3><p>Vollständige Fehleranalyse mit modernster Diagnosetechnik</p></div><div class="service-row-price">ab 49 €</div></div><div class="service-row"><div class="service-row-icon">🔧</div><div><h3>Zylinderkopfdichtung</h3><p>Tausch bei Überhitzungsschäden oder Druckverlust</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon">🛢️</div><div><h3>Ölverlust beheben</h3><p>Dichtungen, Wellendichtringe und Ölwannendichtungen</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon">🔩</div><div><h3>Motorrevision</h3><p>Vollständige Überholung inkl. Kolbenringe, Lager, Dichtungen</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon">💧</div><div><h3>Kühlsystem Reparatur</h3><p>Pumpe, Thermostat, Kühler – alles aus einer Hand</p></div><div class="service-row-price">auf Anfrage</div></div>
+        <div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div><h3>Motordiagnose</h3><p>Vollständige Fehleranalyse mit modernster Diagnosetechnik</p></div><div class="service-row-price">ab 49 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><h3>Zylinderkopfdichtung</h3><p>Tausch bei Überhitzungsschäden oder Druckverlust</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><div><h3>Ölverlust beheben</h3><p>Dichtungen, Wellendichtringe und Ölwannendichtungen</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><h3>Motorrevision</h3><p>Vollständige Überholung inkl. Kolbenringe, Lager, Dichtungen</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><div><h3>Kühlsystem Reparatur</h3><p>Pumpe, Thermostat, Kühler – alles aus einer Hand</p></div><div class="service-row-price">auf Anfrage</div></div>
       </div>
       <div style="background:var(--blue-light);border-radius:var(--r-md);padding:32px;text-align:center">
         <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Kostenvoranschlag gewünscht?</h3>
@@ -1818,7 +1907,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&q=80');filter:brightness(.25)"></div>
     <div class="page-hero-content">
       <span class="eyebrow eyebrow-white" style="text-align:center;display:block">Service</span>
-      <h2 class="display white" style="text-align:center;margin-bottom:10px">🔗 Zahnriemenwechsel</h2>
+      <h2 class="display white" style="text-align:center;margin-bottom:10px">Zahnriemenwechsel</h2>
     </div>
   </div>
   <div class="sec"><div class="sec-inner">
@@ -1826,7 +1915,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <p style="font-size:17px;color:var(--mid);line-height:1.75;margin-bottom:32px">Der Zahnriemen ist eine der kritischsten Komponenten im Motor. Ein rechtzeitiger Wechsel kostet einen Bruchteil eines Motorschadens. Bei KFZ Chaves wechseln wir Zahnriemen für alle Marken – inklusive Spann- und Umlenkrolle sowie auf Wunsch Wasserpumpe.</p>
       <h2 class="display" style="font-size:1.5rem;margin-bottom:20px">Unsere Leistungen</h2>
       <div class="services-list" style="margin-bottom:40px">
-        <div class="service-row"><div class="service-row-icon">🔗</div><div><h3>Zahnriemen + Spannrolle</h3><p>Komplettsatz mit Umlenkrolle nach Herstellervorgabe</p></div><div class="service-row-price">ab 249 €</div></div><div class="service-row"><div class="service-row-icon">💧</div><div><h3>inkl. Wasserpumpe</h3><p>Empfehlenswert, da gleicher Arbeitsaufwand – spart Kosten</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon">⛓️</div><div><h3>Steuerkettenwechsel</h3><p>Bei Kettenantrieb: Kette, Spanner und Schienen</p></div><div class="service-row-price">ab 349 €</div></div><div class="service-row"><div class="service-row-icon">🔍</div><div><h3>Zahnriemen Kontrolle</h3><p>Sichtprüfung auf Risse, Verschleiß und Spannung</p></div><div class="service-row-price">ab 29 €</div></div>
+        <div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><h3>Zahnriemen + Spannrolle</h3><p>Komplettsatz mit Umlenkrolle nach Herstellervorgabe</p></div><div class="service-row-price">ab 249 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><div><h3>inkl. Wasserpumpe</h3><p>Empfehlenswert, da gleicher Arbeitsaufwand – spart Kosten</p></div><div class="service-row-price">auf Anfrage</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><h3>Steuerkettenwechsel</h3><p>Bei Kettenantrieb: Kette, Spanner und Schienen</p></div><div class="service-row-price">ab 349 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><div><h3>Zahnriemen Kontrolle</h3><p>Sichtprüfung auf Risse, Verschleiß und Spannung</p></div><div class="service-row-price">ab 29 €</div></div>
       </div>
       <div style="background:var(--blue-light);border-radius:var(--r-md);padding:32px;text-align:center">
         <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Kostenvoranschlag gewünscht?</h3>
@@ -1842,7 +1931,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
   <div class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&q=80');filter:brightness(.25)"></div>
     <div class="page-hero-content">
       <span class="eyebrow eyebrow-white" style="text-align:center;display:block">Service</span>
-      <h2 class="display white" style="text-align:center;margin-bottom:10px">🏁 HU/AU Vorbereitung</h2>
+      <h2 class="display white" style="text-align:center;margin-bottom:10px">HU/AU Vorbereitung</h2>
     </div>
   </div>
   <div class="sec"><div class="sec-inner">
@@ -1850,7 +1939,7 @@ footer .footer-map-hint{color:rgba(255,255,255,.35) !important;font-size:13px}
       <p style="font-size:17px;color:var(--mid);line-height:1.75;margin-bottom:32px">Wir bereiten Ihr Fahrzeug optimal auf die Hauptuntersuchung (HU) und Abgasuntersuchung (AU) vor. Mit unserem professionellen Vorcheck erkennen und beheben wir Mängel rechtzeitig – damit Sie beim ersten Versuch bestehen.</p>
       <h2 class="display" style="font-size:1.5rem;margin-bottom:20px">Unsere Leistungen</h2>
       <div class="services-list" style="margin-bottom:40px">
-        <div class="service-row"><div class="service-row-icon">🏁</div><div><h3>HU/AU Vorcheck</h3><p>Vollständige Prüfung aller HU-relevanten Bauteile</p></div><div class="service-row-price">ab 39 €</div></div><div class="service-row"><div class="service-row-icon">💡</div><div><h3>Beleuchtung Check & Reparatur</h3><p>Alle Lichter, Blinker, Scheinwerfer einstellen</p></div><div class="service-row-price">ab 19 €</div></div><div class="service-row"><div class="service-row-icon">🛑</div><div><h3>Bremsencheck</h3><p>Beläge, Scheiben, Leitungen, Flüssigkeit</p></div><div class="service-row-price">ab 29 €</div></div><div class="service-row"><div class="service-row-icon">💨</div><div><h3>Abgasuntersuchung (AU)</h3><p>Emissionsmessung und Optimierung</p></div><div class="service-row-price">ab 29 €</div></div><div class="service-row"><div class="service-row-icon">🔍</div><div><h3>Sichtprüfung Fahrwerk</h3><p>Stoßdämpfer, Spurstangen, Achsgelenke</p></div><div class="service-row-price">ab 29 €</div></div>
+        <div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>HU/AU Vorcheck</h3><p>Vollständige Prüfung aller HU-relevanten Bauteile</p></div><div class="service-row-price">ab 39 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div><div><h3>Beleuchtung Check & Reparatur</h3><p>Alle Lichter, Blinker, Scheinwerfer einstellen</p></div><div class="service-row-price">ab 19 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><h3>Bremsencheck</h3><p>Beläge, Scheiben, Leitungen, Flüssigkeit</p></div><div class="service-row-price">ab 29 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></div><div><h3>Abgasuntersuchung (AU)</h3><p>Emissionsmessung und Optimierung</p></div><div class="service-row-price">ab 29 €</div></div><div class="service-row"><div class="service-row-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><div><h3>Sichtprüfung Fahrwerk</h3><p>Stoßdämpfer, Spurstangen, Achsgelenke</p></div><div class="service-row-price">ab 29 €</div></div>
       </div>
       <div style="background:var(--blue-light);border-radius:var(--r-md);padding:32px;text-align:center">
         <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Kostenvoranschlag gewünscht?</h3>
@@ -2618,14 +2707,12 @@ updateStepUI();
 
       <!-- Spalte 1: Brand -->
       <div class="footer-brand">
-        <div class="fb-logo"><img src="/img/f40287dd24.webp" alt="KFZ Chaves Meisterbetrieb" style="height:40px;width:auto;display:block;background:transparent"/></div>
-          
-        </div>
+        <div class="fb-logo"><img class="fb-logo-img" src="/img/logo-chaves.webp" alt="KFZ Chaves Meisterbetrieb" width="149" height="58" style="height:48px;width:auto;display:block;background:transparent"/></div>
         <p>Ihre zuverlässige Meisterwerkstatt in München. Für alle Marken – schnell, transparent und zu fairen Preisen.</p>
         <div class="footer-social">
-          <a href="https://wa.me/4989895573340" target="_blank" aria-label="WhatsApp" class="footer-social-btn" style="background:#25d366">💬</a>
-          <a href="tel:08989557334" aria-label="Telefon" class="footer-social-btn" style="background:var(--blue)">📞</a>
-          <a href="mailto:info@kfz-chaves.de" aria-label="E-Mail" class="footer-social-btn" style="background:rgba(255,255,255,.1)">✉️</a>
+          <a href="https://wa.me/4989895573340" target="_blank" aria-label="WhatsApp" class="footer-social-btn" style="background:#25d366"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+          <a href="tel:08989557334" aria-label="Telefon" class="footer-social-btn" style="background:var(--blue)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a href="mailto:info@kfz-chaves.de" aria-label="E-Mail" class="footer-social-btn" style="background:rgba(255,255,255,.1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
         </div>
       </div>
       <!-- Spalte 4: Kontakt + Öffnungszeiten -->
@@ -2633,15 +2720,15 @@ updateStepUI();
         <h4>Kontakt</h4>
         <ul class="footer-contact-list">
           <li>
-            <span class="fc-icon">📍</span>
+            <span class="fc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <span>Bodenseestr. 275<br/>81249 München</span>
           </li>
           <li>
-            <span class="fc-icon">📞</span>
+            <span class="fc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <a href="tel:08989557334">089 89557334</a>
           </li>
           <li>
-            <span class="fc-icon">✉️</span>
+            <span class="fc-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
             <a href="mailto:info@kfz-chaves.de">info@kfz-chaves.de</a>
           </li>
         </ul>
@@ -2651,8 +2738,8 @@ updateStepUI();
 
     <!-- Anfahrt Hinweis -->
     <div class="footer-map-hint">
-      <span>🚇 S8 Freiham · ca. 8 Min. Fußweg</span>
-      <span>🚗 Parkplätze direkt vor der Werkstatt</span>
+      <span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v8M8 19l-2 3M18 22l-2-3M8 15h.01M16 15h.01"/></svg> S8 Freiham · ca. 8 Min. Fußweg</span>
+      <span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Parkplätze direkt vor der Werkstatt</span>
       <a href="https://maps.google.com/?q=Bodenseestr.+275+München" target="_blank" class="footer-directions-btn">Anfahrt planen →</a>
     </div>
 
@@ -2795,5 +2882,17 @@ updateStepUI();
   document.addEventListener('visibilitychange',()=>{if(document.hidden)running=false;else if(!reduce)start();});
 })();
 </script>
+
+<script>
+(function(){
+  var fine=window.matchMedia('(pointer:fine)').matches, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(fine&&!reduce){
+    document.querySelectorAll('.bento-card').forEach(function(c){
+      c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+    });
+  }
+})();
+</script>
+<script src="/js/gsap.min.js" defer></script><script src="/js/ScrollTrigger.min.js" defer></script><script src="/js/SplitText.min.js" defer></script><script src="/js/motion.js" defer></script>
 </body>
 </html>
