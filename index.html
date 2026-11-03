@@ -1137,6 +1137,40 @@ body{overflow-wrap:break-word}
 .mosaic-item,.phil-img{will-change:clip-path}
 .bento,.recruiting-grid{transform-style:preserve-3d}
 @media (prefers-reduced-motion:reduce){.m-progress,.m-veil,.m-sweep{display:none!important}}
+
+/* ── HEADER 3D ── */
+.hero{background:radial-gradient(ellipse 70% 60% at 72% 50%,#0a2a5c 0%,#06101f 55%,#03060c 100%)}
+.hero-bg{background:none}
+.hero-canvas{z-index:0;opacity:0;transition:opacity 1.2s ease}
+.hero.has-3d .hero-canvas{opacity:1}
+.hero-vignette{background:radial-gradient(ellipse 80% 70% at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%),linear-gradient(180deg,rgba(3,6,12,.0) 70%,rgba(3,6,12,.6))}
+.hero-floor{position:absolute;left:0;right:0;bottom:0;height:38%;pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,transparent,rgba(0,113,227,.08)),
+  repeating-linear-gradient(90deg,rgba(90,160,255,.07) 0 1px,transparent 1px 80px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 60%);mask-image:linear-gradient(180deg,transparent,#000 60%);
+  transform:perspective(500px) rotateX(58deg);transform-origin:50% 100%}
+@media(min-width:1000px){
+  .hero{align-items:stretch;text-align:left}
+  .hero-content{width:min(1180px,100%);margin:0 auto;padding:0 32px;display:flex;flex-direction:column;align-items:flex-start}
+  .hero-content>*{max-width:680px}
+  .hero h1{font-size:clamp(3.4rem,5.2vw,5.2rem);max-width:none!important}
+  .hero-sub{margin:0 0 34px;text-align:left}
+  .hero-actions{justify-content:flex-start}
+}
+@media(max-width:999px){
+  .hero{justify-content:flex-end;padding-top:min(68vw,380px)}
+}
+
+/* ── Anti-Ruckel: CSS-Übergänge dürfen GSAP-Transforms nicht überlagern ── */
+.js-motion .bento-card,.js-motion .review-card,.js-motion .service-card,.js-motion .blog-card,.js-motion .pillar,.js-motion .schnell-card,.js-motion .usp-item,.js-motion .recruiting-card,.js-motion .faq-item,.js-motion .counter-item,.js-motion .badge,.js-motion .partner-row img{transition-property:box-shadow,background-color,border-color,color!important}
+.js-motion .bento-card:hover,.js-motion .service-card:hover,.js-motion .blog-card:hover,.js-motion .review-card:hover,.js-motion .pillar:hover,.js-motion .schnell-card:hover{transform:none}
+.js-motion .btn-blue,.js-motion .btn-ghost,.js-motion .rb-btn,.js-motion .nl-btn{transition-property:background-color,box-shadow,color,border-color!important}
+.js-motion .btn-blue:hover,.js-motion .btn-blue:active,.js-motion .rb-btn:hover{transform:none}
+.js-motion .mosaic-item img,.js-motion .phil-img img,.js-motion .page-hero-bg{transition:none!important}
+.js-motion .page.active .sec:first-of-type,.js-motion .hero-content{animation:none!important}
+.js-motion h1,.js-motion h2.display{text-wrap:wrap}
+.m-line{will-change:transform}
+html.js-motion{scroll-behavior:auto}
 </style>
 </head>
 <body>
@@ -1206,7 +1240,7 @@ body{overflow-wrap:break-word}
 <div id="page-start" class="page active">
 
   <div class="hero">
-    <div class="hero-bg"></div><div class="hero-glow"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div><div class="hero-orb hero-orb-3"></div><div class="hero-orb hero-orb-4"></div></div><canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas><div class="hero-vignette"></div><div class="hero-grain"></div>
+    <div class="hero-bg"></div><canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas><div class="hero-floor"></div><div class="hero-vignette"></div><div class="hero-grain"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">KFZ-Meisterwerkstatt München</div>
       <h1>Ihr Auto.<br/><span>Unsere Leidenschaft.</span></h1>
@@ -2771,122 +2805,7 @@ updateStepUI();
 <input name="bot-field"/><input name="kunde_name"/><input name="kunde_email"/><input name="kunde_telefon"/><input name="betreff"/><textarea name="nachricht"></textarea>
 </form>
 
-<script>
-/* HERO-HINTERGRUND: Perspektiv-Raster (Straße bei Nacht) + Lichtspuren */
-(function(){
-  const c=document.getElementById('hero-canvas');if(!c)return;
-  const ctx=c.getContext('2d');
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W=0,H=0,DPR=1,t=0,running=true,last=performance.now(),mx=0,my=0,tmx=0,tmy=0;
-  const streaks=[],sparks=[];
-  function resize(){
-    const r=c.getBoundingClientRect();DPR=Math.min(window.devicePixelRatio||1,2);
-    W=r.width;H=r.height;c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);
-  }
-  function horizon(){return H*(W<700?0.80:0.64)}
-  function newStreak(init){
-    const dir=Math.random()<.5?1:-1, depth=Math.random(); // 0 fern, 1 nah
-    const hz=horizon();
-    const y=hz+ (H-hz)*Math.pow(depth,1.6)*0.95 - 6;
-    const warm=Math.random()<.18;
-    return {dir,depth,y,
-      x:init?Math.random()*W:(dir>0?-200:W+200),
-      len:60+depth*380, w:.6+depth*2.4,
-      v:(120+depth*900)*(0.7+Math.random()*.6),
-      col:warm?[255,70,60]:(Math.random()<.5?[90,170,255]:[220,235,255]),
-      a:.35+depth*.55};
-  }
-  function init(){streaks.length=0;const n=W<700?14:26;for(let i=0;i<n;i++)streaks.push(newStreak(true));
-    sparks.length=0;const m=W<700?40:80;for(let i=0;i<m;i++)sparks.push({x:Math.random()*W,y:Math.random()*H*.6,r:Math.random()*1.3+.2,p:Math.random()*6.28,s:.3+Math.random()*1.2});}
-  function drawGrid(){
-    const hz=horizon()+my*6, cx=W/2+mx*30;
-    // Horizont-Glühen
-    let g=ctx.createLinearGradient(0,hz-140,0,hz+60);
-    g.addColorStop(0,'rgba(0,113,227,0)');g.addColorStop(.7,'rgba(0,113,227,.38)');g.addColorStop(1,'rgba(0,113,227,0)');
-    ctx.fillStyle=g;ctx.fillRect(0,hz-140,W,200);
-    ctx.fillStyle='rgba(120,190,255,.55)';ctx.fillRect(0,hz-.5,W,1);
-    ctx.save();ctx.beginPath();ctx.rect(0,hz,W,H-hz);ctx.clip();
-    // Längslinien zum Fluchtpunkt
-    const lines=W<700?14:22;
-    for(let i=-lines;i<=lines;i++){
-      const xb=cx+i*(W/lines)*1.6;
-      const lg=ctx.createLinearGradient(0,hz,0,H);
-      lg.addColorStop(0,'rgba(80,160,255,0)');lg.addColorStop(1,'rgba(80,160,255,'+(i===0?.0:.38)+')');
-      ctx.strokeStyle=lg;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,hz);ctx.lineTo(xb,H);ctx.stroke();
-    }
-    // Querlinien, die auf den Betrachter zufahren
-    const speed=reduce?0:0.35, rows=18;
-    for(let k=0;k<rows;k++){
-      let z=((k/rows)+t*speed)%1; const p=Math.pow(z,2.6);
-      const y=hz+(H-hz)*p; const a=Math.min(1,p*1.6)*.5;
-      ctx.strokeStyle='rgba(80,160,255,'+a+')';ctx.lineWidth=.6+p*1.4;
-      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
-    }
-    // Mittelstreifen
-    for(let k=0;k<10;k++){
-      let z=((k/10)+t*speed*1.4)%1; const p1=Math.pow(z,2.6), p2=Math.pow(Math.min(1,z+.04),2.6);
-      const y1=hz+(H-hz)*p1,y2=hz+(H-hz)*p2, w1=1+p1*10,w2=1+p2*10;
-      ctx.fillStyle='rgba(200,225,255,'+(.08+p1*.35)+')';
-      ctx.beginPath();ctx.moveTo(cx-w1/2,y1);ctx.lineTo(cx+w1/2,y1);ctx.lineTo(cx+w2/2,y2);ctx.lineTo(cx-w2/2,y2);ctx.fill();
-    }
-    ctx.restore();
-  }
-  function drawStreaks(dt){
-    ctx.globalCompositeOperation='lighter';
-    for(let i=0;i<streaks.length;i++){
-      const s=streaks[i];
-      if(!reduce)s.x+=s.dir*s.v*dt;
-      const tail=s.x-s.dir*s.len, y=s.y+my*10*s.depth;
-      const g=ctx.createLinearGradient(tail,0,s.x,0);
-      const [r,gg,b]=s.col;
-      g.addColorStop(0,'rgba('+r+','+gg+','+b+',0)');g.addColorStop(1,'rgba('+r+','+gg+','+b+','+s.a+')');
-      const cxw=W/2, dx=Math.abs(s.x-cxw)/(W*.32); const fade=s.y<H*.9?Math.min(1,.25+dx*dx):1;
-      ctx.globalAlpha=fade;
-      ctx.strokeStyle=g;ctx.lineWidth=s.w;ctx.lineCap='round';
-      ctx.beginPath();ctx.moveTo(tail,y);ctx.lineTo(s.x,y);ctx.stroke();
-      // Lichtkopf
-      ctx.fillStyle='rgba('+r+','+gg+','+b+','+(s.a*.9)+')';
-      ctx.beginPath();ctx.arc(s.x,y,s.w*1.4,0,6.283);ctx.fill();
-      ctx.globalAlpha=1;
-      if((s.dir>0&&tail>W+50)||(s.dir<0&&tail<-50))streaks[i]=newStreak(false);
-    }
-    ctx.globalCompositeOperation='source-over';
-  }
-  function drawBeams(){
-    ctx.globalCompositeOperation='lighter';
-    const beams=[{x:-W*.05,ang:.55,ph:0,col:'0,113,227'},{x:W*1.05,ang:Math.PI-.55,ph:2.1,col:'60,150,255'}];
-    for(const b of beams){
-      const sway=reduce?0:Math.sin(t*.35+b.ph)*.16;
-      const a=b.ang+sway, L=Math.hypot(W,H)*1.1, spread=.13;
-      const x2=b.x+Math.cos(a-spread)*L,y2=-40+Math.sin(a-spread)*L,x3=b.x+Math.cos(a+spread)*L,y3=-40+Math.sin(a+spread)*L;
-      const g=ctx.createRadialGradient(b.x,-40,0,b.x,-40,L*.75);
-      g.addColorStop(0,'rgba('+b.col+',.30)');g.addColorStop(.5,'rgba('+b.col+',.10)');g.addColorStop(1,'rgba('+b.col+',0)');
-      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(b.x,-40);ctx.lineTo(x2,y2);ctx.lineTo(x3,y3);ctx.closePath();ctx.fill();
-    }
-    ctx.globalCompositeOperation='source-over';
-  }
-  function drawSparks(){
-    for(const p of sparks){const a=.15+.35*(.5+.5*Math.sin(t*p.s*2+p.p));
-      ctx.fillStyle='rgba(170,210,255,'+a+')';ctx.beginPath();ctx.arc(p.x+mx*8,p.y+my*5,p.r,0,6.283);ctx.fill();}
-  }
-  function frame(now){
-    if(!running)return;
-    const dt=Math.min(.05,(now-last)/1000);last=now;t+=dt;
-    mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
-    ctx.clearRect(0,0,W,H);
-    drawBeams();drawSparks();drawGrid();drawStreaks(dt);
-    if(!reduce)requestAnimationFrame(frame);
-  }
-  function start(){if(running)return;running=true;last=performance.now();requestAnimationFrame(frame);}
-  resize();init();requestAnimationFrame(frame);
-  window.addEventListener('resize',()=>{resize();init();if(reduce)requestAnimationFrame(frame);});
-  c.parentElement.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();tmx=(e.clientX-r.left)/r.width-.5;tmy=(e.clientY-r.top)/r.height-.5;});
-  if('IntersectionObserver' in window&&!reduce){
-    new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)start();else running=false;});}).observe(c);
-  }
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)running=false;else if(!reduce)start();});
-})();
-</script>
+
 
 <script>
 (function(){
@@ -2899,5 +2818,6 @@ updateStepUI();
 })();
 </script>
 <script src="/js/gsap.min.js" defer></script><script src="/js/ScrollTrigger.min.js" defer></script><script src="/js/SplitText.min.js" defer></script><script src="/js/motion.js" defer></script>
+<script type="module" src="/js/hero3d.js"></script>
 </body>
 </html>

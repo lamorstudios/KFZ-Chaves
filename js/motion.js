@@ -29,18 +29,18 @@
 
   function splitLines(el) {
     if (!hasSplit) return null;
-    try { return SplitText.create(el, { type: 'lines', mask: 'lines', linesClass: 'm-line', autoSplit: false }); } catch (e) { return null; }
+    try { return SplitText.create(el, { type: 'lines', mask: 'lines', linesClass: 'm-line' }); } catch (e) { return null; }
   }
 
   function headline(h) {
     if (!once(h)) return;
-    var sp = splitLines(h);
-    if (sp && sp.lines.length) {
-      gsap.from(sp.lines, { yPercent: 115, rotate: 2.5, duration: 1.25, ease: EASE, stagger: 0.11, scrollTrigger: st(h, 'top 88%'),
-        onComplete: function () { try { sp.revert(); } catch (e) {} } });
-    } else {
-      gsap.from(h, { y: 40, opacity: 0, duration: 1.1, ease: EASE, scrollTrigger: st(h) });
-    }
+    if (!hasSplit) { gsap.from(h, { y: 40, opacity: 0, duration: 1.1, ease: EASE, scrollTrigger: st(h) }); return; }
+    var played = false;
+    SplitText.create(h, { type: 'lines', mask: 'lines', linesClass: 'm-line', autoSplit: true,
+      onSplit: function (self) {
+        if (played) return;
+        return gsap.from(self.lines, { yPercent: 110, duration: 1.2, ease: EASE, stagger: 0.1, scrollTrigger: st(h, 'top 88%'), onComplete: function () { played = true; } });
+      } });
   }
 
   function eyebrow(el) {
@@ -72,7 +72,7 @@
     tl.fromTo(box, { clipPath: 'inset(18% 12% 18% 12% round 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath' });
     if (img) tl.fromTo(img, { scale: 1.35 }, { scale: 1, duration: 1.8, ease: 'expo.out', clearProps: 'transform' }, 0);
     if (img && desktop) {
-      gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: true } });
+      gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: 0.5 } });
     }
   }
 
@@ -84,12 +84,14 @@
     gsap.set(card, { transformPerspective: 900 });
     var rx = gsap.quickTo(card, 'rotationX', { duration: 0.6, ease: 'power3.out' });
     var ry = gsap.quickTo(card, 'rotationY', { duration: 0.6, ease: 'power3.out' });
+    var ly = gsap.quickTo(card, 'y', { duration: 0.5, ease: 'power3.out' });
+    card.addEventListener('pointerenter', function () { ly(-6); });
     card.addEventListener('pointermove', function (e) {
       var r = card.getBoundingClientRect();
       var px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
       ry(px * max); rx(-py * max);
     });
-    card.addEventListener('pointerleave', function () { rx(0); ry(0); });
+    card.addEventListener('pointerleave', function () { rx(0); ry(0); ly(0); });
   }
 
   /* Magnetische Buttons */
@@ -112,21 +114,18 @@
     var h1 = hero.querySelector('h1');
     var tl = gsap.timeline({ defaults: { ease: EASE } });
     var canvas = hero.querySelector('.hero-canvas');
-    if (canvas) tl.from(canvas, { opacity: 0, scale: 1.12, duration: 2.2, ease: 'power2.out' }, 0);
     tl.from(hero.querySelector('.hero-eyebrow'), { y: 24, opacity: 0, filter: 'blur(6px)', duration: 1, clearProps: 'filter' }, 0.15);
     if (h1 && hasSplit) {
       var sp = SplitText.create(h1, { type: 'words,chars', charsClass: 'm-char' });
       gsap.set(h1, { perspective: 700 });
-      tl.from(sp.chars, { yPercent: 105, rotationX: -85, opacity: 0, transformOrigin: '50% 100% -30px', duration: 1.3, stagger: 0.022 }, 0.25)
-        .add(function () { try { sp.revert(); } catch (e) {} });
+      tl.from(sp.chars, { yPercent: 105, rotationX: -85, opacity: 0, transformOrigin: '50% 100% -30px', duration: 1.3, stagger: 0.022, clearProps: 'transform' }, 0.25);
     } else if (h1) {
       tl.from(h1, { y: 40, opacity: 0, duration: 1.2 }, 0.25);
     }
     var sub = hero.querySelector('.hero-sub');
     if (sub) {
       var ss = splitLines(sub);
-      tl.from(ss ? ss.lines : sub, { yPercent: ss ? 110 : 0, y: ss ? 0 : 20, opacity: ss ? 1 : 0, duration: 1.1, stagger: 0.08,
-        onComplete: function () { if (ss) try { ss.revert(); } catch (e) {} } }, 0.8);
+      tl.from(ss ? ss.lines : sub, { yPercent: ss ? 110 : 0, y: ss ? 0 : 20, opacity: ss ? 1 : 0, duration: 1.1, stagger: 0.08 }, 0.8);
     }
     tl.from($('.hero-actions > *', hero), { y: 30, opacity: 0, scale: 0.94, duration: 1, stagger: 0.1, clearProps: 'transform,opacity' }, 1.0);
     var strip = document.querySelector('#page-start .contact-strip');
@@ -134,8 +133,7 @@
 
     /* Beim Runterscrollen: Inhalt gleitet weg, Hintergrund taucht tiefer */
     var content = hero.querySelector('.hero-content');
-    gsap.to(content, { y: -110, scale: 0.94, opacity: 0.15, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
-    if (canvas) gsap.to(canvas, { scale: 1.18, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
+    gsap.to(content, { y: -90, opacity: 0.1, ease: 'none', force3D: true, scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
   }
 
   /* ---------- Startseite ---------- */
@@ -226,13 +224,13 @@
       var bg = ph.querySelector('.page-hero-bg');
       if (bg) {
         gsap.fromTo(bg, { scale: 1.25 }, { scale: 1, duration: 2.2, ease: 'expo.out' });
-        gsap.to(bg, { yPercent: 18, ease: 'none', scrollTrigger: { trigger: ph, start: 'top top', end: 'bottom top', scrub: true } });
+        gsap.to(bg, { yPercent: 18, ease: 'none', scrollTrigger: { trigger: ph, start: 'top top', end: 'bottom top', scrub: 0.5 } });
       }
       var h1 = ph.querySelector('h1');
       if (h1 && hasSplit) {
         var sp = SplitText.create(h1, { type: 'words,chars', charsClass: 'm-char' });
         gsap.set(h1, { perspective: 700 });
-        gsap.from(sp.chars, { yPercent: 100, rotationX: -80, opacity: 0, transformOrigin: '50% 100% -30px', duration: 1.1, ease: EASE, stagger: 0.018, delay: 0.1, onComplete: function () { try { sp.revert(); } catch (e) {} } });
+        gsap.from(sp.chars, { yPercent: 100, rotationX: -80, opacity: 0, transformOrigin: '50% 100% -30px', duration: 1.1, ease: EASE, stagger: 0.018, delay: 0.1, clearProps: 'transform' });
       }
       gsap.from($('p, .eyebrow, span.eyebrow', ph), { y: 20, opacity: 0, duration: 1, ease: EASE, delay: 0.5, stagger: 0.1, clearProps: 'transform,opacity' });
     }
@@ -316,5 +314,12 @@
     initPage(document.querySelector('.page.active') || document.getElementById('page-start'));
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  document.documentElement.classList.add('js-motion');
+  var booted = false;
+  function go() { if (booted) return; booted = true; boot(); }
+  function ready() {
+    var f = document.fonts && document.fonts.ready;
+    if (f) { Promise.race([f, new Promise(function (r) { setTimeout(r, 1200); })]).then(go); } else go();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
 })();
