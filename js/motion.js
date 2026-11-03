@@ -152,6 +152,11 @@
 
   /* ---------- Startseite ---------- */
   function startPage(root) {
+    var film = root.querySelector('.film-card');
+    if (film && once(film)) {
+      gsap.fromTo(film, { clipPath: 'inset(12% 10% 12% 10% round 48px)', scale: 0.96 }, { clipPath: 'inset(0% 0% 0% 0% round 28px)', scale: 1, duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath,transform', scrollTrigger: st(film, 'top 88%') });
+      gsap.from(film.querySelector('.film-play-btn'), { scale: 0.4, opacity: 0, duration: 1, ease: 'back.out(2)', delay: 0.6, clearProps: 'transform,opacity', scrollTrigger: st(film, 'top 88%') });
+    }
     var phil = root.querySelector('.phil-grid');
     if (phil) {
       rise($('.lead', phil), { trigger: phil, vars: { y: 30 } });
