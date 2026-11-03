@@ -113,7 +113,21 @@
     if (!hero || !once(hero)) return;
     var h1 = hero.querySelector('h1');
     var tl = gsap.timeline({ defaults: { ease: EASE } });
-    var canvas = hero.querySelector('.hero-canvas');
+    var media = hero.querySelector('.hero-media');
+    var vid = hero.querySelector('.hero-video');
+    if (media) {
+      tl.fromTo(media, { scale: 1.12, filter: 'brightness(0.4)' }, { scale: 1, filter: 'brightness(1)', duration: 2.4, ease: 'power3.out', clearProps: 'filter' }, 0);
+      gsap.to(media, { yPercent: 12, scale: 1.08, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
+      if (fine && vid) {
+        var vx = gsap.quickTo(vid, 'x', { duration: 1.2, ease: 'power3.out' });
+        var vy = gsap.quickTo(vid, 'y', { duration: 1.2, ease: 'power3.out' });
+        hero.addEventListener('pointermove', function (e) {
+          var r = hero.getBoundingClientRect();
+          vx(((e.clientX - r.left) / r.width - 0.5) * -26); vy(((e.clientY - r.top) / r.height - 0.5) * -16);
+        });
+        hero.addEventListener('pointerleave', function () { vx(0); vy(0); });
+      }
+    }
     tl.from(hero.querySelector('.hero-eyebrow'), { y: 24, opacity: 0, filter: 'blur(6px)', duration: 1, clearProps: 'filter' }, 0.15);
     if (h1 && hasSplit) {
       var sp = SplitText.create(h1, { type: 'words,chars', charsClass: 'm-char' });

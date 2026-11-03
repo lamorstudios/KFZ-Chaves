@@ -1138,39 +1138,32 @@ body{overflow-wrap:break-word}
 .bento,.recruiting-grid{transform-style:preserve-3d}
 @media (prefers-reduced-motion:reduce){.m-progress,.m-veil,.m-sweep{display:none!important}}
 
-/* ── HEADER 3D ── */
-.hero{background:radial-gradient(ellipse 70% 60% at 72% 50%,#0a2a5c 0%,#06101f 55%,#03060c 100%)}
+/* ── HEADER VIDEO ── */
+.hero{background:#05080e}
 .hero-bg{background:none}
-.hero-canvas{z-index:0;opacity:0;transition:opacity 1.2s ease}
-.hero.has-3d .hero-canvas{opacity:1}
-.hero-vignette{background:radial-gradient(ellipse 80% 70% at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%),linear-gradient(180deg,rgba(3,6,12,.0) 70%,rgba(3,6,12,.6))}
-.hero-floor{position:absolute;left:0;right:0;bottom:0;height:38%;pointer-events:none;z-index:0;
-  background:linear-gradient(180deg,transparent,rgba(0,113,227,.08)),
-  repeating-linear-gradient(90deg,rgba(90,160,255,.07) 0 1px,transparent 1px 80px);
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 60%);mask-image:linear-gradient(180deg,transparent,#000 60%);
-  transform:perspective(500px) rotateX(58deg);transform-origin:50% 100%}
+.hero-media{position:absolute;inset:-6% -3%;z-index:0;overflow:hidden;background:#05080e url(/media/hero-poster.jpg) center/cover no-repeat}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;will-change:transform}
+.hero-video.ready{opacity:1}
+.hero-shade{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,8,16,.92) 0%,rgba(4,8,16,.78) 34%,rgba(4,8,16,.25) 68%,rgba(4,8,16,.35) 100%),
+  linear-gradient(180deg,rgba(4,8,16,.45) 0%,transparent 25%,transparent 70%,rgba(4,8,16,.85) 100%)}
+.hero-vignette{background:radial-gradient(ellipse 85% 75% at 60% 50%,transparent 55%,rgba(0,0,0,.5) 100%)}
+.hero-grain{opacity:.05}
+.hero-shade::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,113,227,.7),transparent)}
 @media(min-width:1000px){
   .hero{align-items:stretch;text-align:left}
   .hero-content{width:min(1180px,100%);margin:0 auto;padding:0 32px;display:flex;flex-direction:column;align-items:flex-start}
   .hero-content>*{max-width:680px}
   .hero h1{font-size:clamp(3.4rem,5.2vw,5.2rem);max-width:none!important}
-  .hero-sub{margin:0 0 34px;text-align:left}
+  .hero-sub{margin:0 0 34px;text-align:left;color:rgba(255,255,255,.75)}
   .hero-actions{justify-content:flex-start}
 }
 @media(max-width:999px){
-  .hero{justify-content:flex-end;padding-top:min(68vw,380px)}
+  .hero-media{background-image:url(/media/hero-poster-mobile.jpg)}
+  .hero-shade{background:linear-gradient(180deg,rgba(4,8,16,.55) 0%,rgba(4,8,16,.35) 30%,rgba(4,8,16,.82) 62%,rgba(4,8,16,.95) 100%)}
+  .hero{justify-content:flex-end;padding-bottom:56px}
 }
-
-/* ── Anti-Ruckel: CSS-Übergänge dürfen GSAP-Transforms nicht überlagern ── */
-.js-motion .bento-card,.js-motion .review-card,.js-motion .service-card,.js-motion .blog-card,.js-motion .pillar,.js-motion .schnell-card,.js-motion .usp-item,.js-motion .recruiting-card,.js-motion .faq-item,.js-motion .counter-item,.js-motion .badge,.js-motion .partner-row img{transition-property:box-shadow,background-color,border-color,color!important}
-.js-motion .bento-card:hover,.js-motion .service-card:hover,.js-motion .blog-card:hover,.js-motion .review-card:hover,.js-motion .pillar:hover,.js-motion .schnell-card:hover{transform:none}
-.js-motion .btn-blue,.js-motion .btn-ghost,.js-motion .rb-btn,.js-motion .nl-btn{transition-property:background-color,box-shadow,color,border-color!important}
-.js-motion .btn-blue:hover,.js-motion .btn-blue:active,.js-motion .rb-btn:hover{transform:none}
-.js-motion .mosaic-item img,.js-motion .phil-img img,.js-motion .page-hero-bg{transition:none!important}
-.js-motion .page.active .sec:first-of-type,.js-motion .hero-content{animation:none!important}
-.js-motion h1,.js-motion h2.display{text-wrap:wrap}
-.m-line{will-change:transform}
-html.js-motion{scroll-behavior:auto}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
 </style>
 </head>
 <body>
@@ -1240,7 +1233,7 @@ html.js-motion{scroll-behavior:auto}
 <div id="page-start" class="page active">
 
   <div class="hero">
-    <div class="hero-bg"></div><canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas><div class="hero-floor"></div><div class="hero-vignette"></div><div class="hero-grain"></div>
+    <div class="hero-bg"></div><div class="hero-media" aria-hidden="true"><video class="hero-video" id="hero-video" muted loop playsinline preload="none"></video></div><div class="hero-shade"></div><div class="hero-vignette"></div><div class="hero-grain"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">KFZ-Meisterwerkstatt München</div>
       <h1>Ihr Auto.<br/><span>Unsere Leidenschaft.</span></h1>
@@ -2818,6 +2811,22 @@ updateStepUI();
 })();
 </script>
 <script src="/js/gsap.min.js" defer></script><script src="/js/ScrollTrigger.min.js" defer></script><script src="/js/SplitText.min.js" defer></script><script src="/js/motion.js" defer></script>
-<script type="module" src="/js/hero3d.js"></script>
+<script>
+(function(){
+  var v=document.getElementById('hero-video'); if(!v) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var small=window.matchMedia('(max-width: 999px)').matches;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  if(saveData) return;
+  v.src=small?'/media/hero-mobile.mp4':'/media/hero-1280.mp4';
+  v.poster=small?'/media/hero-poster-mobile.jpg':'/media/hero-poster.jpg';
+  v.addEventListener('playing',function(){v.classList.add('ready')},{once:true});
+  function play(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play():v.pause();});}).observe(v.parentElement);
+  } else play();
+  document.addEventListener('visibilitychange',function(){document.hidden?v.pause():play();});
+})();
+</script>
 </body>
 </html>
