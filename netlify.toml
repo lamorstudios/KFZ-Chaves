@@ -53,6 +53,12 @@
 # Minimale Antwort statt 3MB index.html.
 
 [[redirects]]
+  from = "/tools/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/wp-admin/*"
   to = "/404.html"
   status = 404

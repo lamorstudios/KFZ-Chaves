@@ -26,3 +26,5 @@ User-agent: *
 Disallow: /*?page_id=
 Disallow: /*?ai1ec=
 Allow: /
+
+Sitemap: https://kfz-chaves.de/sitemap.xml
